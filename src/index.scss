@@ -1,0 +1,239 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: "Poppins", sans-serif !important;
+}
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    font-family: "Poppins", sans-serif !important;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+        monospace;
+}
+a {
+    text-decoration: none;
+}
+
+$main-dark: #1f2429;
+$main-light: #edf0ed;
+$text-dark: #1f2429;
+$secondary-dark: #2e3236;
+$text-light: #edf0ed;
+$anime-item: #2482b8;
+$button-color: #3577ff;
+$button-color-hovered: #2b5dc0;
+
+body {
+    background-color: $main-dark;
+    color: $text-light;
+}
+
+button {
+    outline: none;
+    border: none;
+    transition: 0.15s ease-in;
+}
+button:hover {
+}
+.button-small {
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.75rem;
+}
+.button-medium {
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+}
+.button-large {
+    padding: 1rem 3rem;
+    border-radius: 0.75rem;
+    font-size: 1.5rem;
+}
+
+.item-holder {
+    // display: grid;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    // grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 1rem;
+    max-width: 800px;
+    min-width: 200px;
+    margin: 5rem 1rem;
+
+    .item {
+        border: 1px solid $main-light;
+        display: flex;
+
+        img {
+            object-fit: cover;
+        }
+        .item-body {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
+}
+
+.see-full-button {
+    background-color: $button-color;
+    color: $text-light;
+    line-height: 2.5rem;
+    transition: 0.15s ease-in;
+}
+.see-full-button:hover {
+    background-color: $button-color-hovered;
+    color: $text-light;
+}
+
+.genre-holder {
+    button {
+        margin: 0.2rem;
+    }
+}
+
+.hero-image {
+    width: 100%;
+    height: 40vh;
+    // height: 200px;
+    border-bottom: 1px solid $main-light;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .hero-text {
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: $text-light;
+        padding: 0.5rem;
+        border: 1px solid $main-light;
+        background-color: rgba(128, 128, 128, 0.45);
+        box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.3);
+    }
+}
+
+.title {
+    font-size: 1.5rem;
+}
+.sub-title {
+    font-size: 1rem;
+}
+
+.info-page {
+    width: 80%;
+    max-width: 800px;
+    margin: 5rem auto;
+
+    .small-info {
+        margin-bottom: 2rem;
+    }
+}
+
+.description {
+    p {
+        border: 1px solid $text-light;
+        padding: 0.5rem 1rem;
+    }
+}
+
+nav {
+    /* margin-bottom: 7rem !important; */
+    // margin: 1rem 0;
+    padding: 0.5rem;
+    border-bottom: 1px solid $main-light;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.75rem;
+    padding: 0;
+}
+nav ul li {
+    transition: 0.2s ease-in;
+}
+nav ul li a {
+    background-color: $secondary-dark;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    color: $text-light;
+}
+nav ul li a:hover {
+    opacity: 0.8;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+a {
+    border: none !important;
+}
+.fix-btn {
+    margin-top: 2px;
+}
+.active {
+    background-color: $main-light;
+    color: $main-dark;
+}
+.changed-centered {
+    width: fit-content;
+    margin: auto;
+    align-items: center;
+    // margin: auto;
+}
+
+.FINISHED {
+    color: rgb(23, 145, 161);
+}
+.main-bg {
+    background-color: #2e3236;
+}
+
+// @media screen and (max-width: 1400px) {
+//     .changed-centered {
+//         max-width: 60%;
+//     }
+//     .item-holder {
+//         grid-template-columns: repeat(3, 1fr);
+
+//         .item {
+//             img {
+//                 height: 40vw;
+//             }
+//         }
+//     }
+// }
+// @media screen and (max-width: 1400px) {
+//     .changed-centered {
+//         max-width: 70%;
+//     }
+// }
+// @media screen and (max-width: 1000px) {
+//     .changed-centered {
+//         max-width: 80%;
+//     }
+// }
+// @media screen and (max-width: 600px) {
+//     .changed-centered {
+//         max-width: 90%;
+//     }
+// }

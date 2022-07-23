@@ -1,0 +1,14 @@
+.small-card {
+    .small-card-title {
+        padding: 0.5rem;
+        margin-bottom: 0;
+    }
+    .small-card-img {
+        width: 100%;
+        height: 400px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    border: 1px solid #edf0ed;
+}

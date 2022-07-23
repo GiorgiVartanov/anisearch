@@ -1,0 +1,22 @@
+.relation-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: auto;
+    gap: 0.5rem;
+}
+
+@media (max-width: 1000px) {
+    .relation-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 600px) {
+    .relation-list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+@media (max-width: 400px) {
+    .relation-list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

@@ -1,0 +1,31 @@
+.drop-down {
+    position: relative;
+}
+.drop-down-button {
+    background-color: transparent;
+    color: #edf0ed;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: #2e3236;
+    cursor: pointer;
+}
+.border {
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+.dropdown-opened {
+}
+
+.drop-down-content {
+    position: absolute;
+    z-index: 2;
+    background-color: #1f2429;
+    padding: 1rem 0.5rem;
+    margin-top: 0.5rem;
+    left: -1.5rem;
+
+    ul {
+        flex-direction: column;
+        width: fit-content;
+    }
+}
