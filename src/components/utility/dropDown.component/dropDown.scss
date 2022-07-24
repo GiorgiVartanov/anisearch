@@ -1,28 +1,59 @@
+@import "../../../scss-variables.scss";
+
 .drop-down {
     position: relative;
 }
 .drop-down-button {
-    background-color: transparent;
-    color: #edf0ed;
-    font-size: 1rem;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
-    background-color: #2e3236;
+    color: $main-light;
+    background-color: $main-dark;
+
+    // background-color: $main-light;
+    // padding: 0.5rem 1rem;
+    // border-radius: 0.5rem;
+    // color: $main-dark;
+
+    font-size: 1rem;
+
+    // background-color: transparent;
+    // color: #edf0ed;
+    // font-size: 1rem;
+    // padding: 0.5rem 1rem;
+    // border-radius: 0.5rem;
+    // background-color: #2e3236;
     cursor: pointer;
 }
+.drop-down-button:hover {
+    opacity: 0.8;
+}
+.drop-down:hover,
+.drop-down-button:hover,
+.drop-down-content:hover {
+    .drop-down-content {
+        display: block;
+    }
+}
 .border {
-    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.2);
 }
 .dropdown-opened {
+    // background-color: #3f4449;
+}
+.dropdown-sign {
+    font-size: 0.75rem;
+    line-height: 1rem;
 }
 
 .drop-down-content {
+    box-shadow: 0 0 10px 10px #272e2e33;
     position: absolute;
     z-index: 2;
-    background-color: #1f2429;
+    background-color: $main-dark;
     padding: 1rem 0.5rem;
-    margin-top: 0.5rem;
+    margin-top: 0;
     left: -1.5rem;
+
+    display: none;
 
     ul {
         flex-direction: column;

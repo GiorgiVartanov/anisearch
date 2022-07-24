@@ -51,10 +51,10 @@ function App() {
                         path="/characterlist/:id"
                         element={<CharacterInfo />}
                     />
-                    <Route path="/mangalist" element={<MangaList />} />
-                    <Route path="/mangalist/:id" element={<MangaInfo />} />
-                    <Route path="/animelist" element={<AnimeList />} />
-                    <Route path="/animelist/:id" element={<AnimeInfo />} />
+                    <Route path="/mangalist/:page" element={<MangaList />} />
+                    <Route path="/mangainfo/:id" element={<MangaInfo />} />
+                    <Route path="/animelist/:page" element={<AnimeList />} />
+                    <Route path="/animeinfo/:id" element={<AnimeInfo />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </Router>

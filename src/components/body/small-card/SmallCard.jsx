@@ -14,7 +14,7 @@ const SmallCard = ({ id }) => {
     if (error) return null;
 
     return (
-        <div className="small-card">
+        <Link className="small-card" to={`/animeinfo/${id}`}>
             <div
                 className="small-card-img"
                 style={{
@@ -22,7 +22,7 @@ const SmallCard = ({ id }) => {
                 }}
             />
             <p className="small-card-title">{data.Media.title.romaji}</p>
-        </div>
+        </Link>
     );
 };
 

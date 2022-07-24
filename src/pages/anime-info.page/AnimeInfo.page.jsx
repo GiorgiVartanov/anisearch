@@ -18,8 +18,6 @@ const AnimeInfo = () => {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Something Went Wrong</p>;
 
-    console.log(data.Media.relations.edges[0].node);
-
     return (
         <>
             <div

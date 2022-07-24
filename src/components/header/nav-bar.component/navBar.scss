@@ -1,0 +1,30 @@
+@import "../../../scss-variables.scss";
+
+nav {
+    /* margin-bottom: 7rem !important; */
+    // margin: 1rem 0;
+    background-color: $main-dark;
+    padding: 0.5rem;
+    // border-bottom: 1px solid $main-light;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.15);
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 0;
+}
+nav ul li {
+}
+nav ul li a {
+    // background-color: $main-light;
+    transition: 0.2s ease-in;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    color: $main-light;
+}
+nav ul li a:hover {
+    opacity: 0.8;
+}

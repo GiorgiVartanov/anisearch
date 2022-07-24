@@ -1,10 +1,14 @@
+@import "../../../scss-variables.scss";
+
 .anime-genre {
-    background-color: #4ca1c7;
-    color: white;
+    background-color: $anime-highlight;
+    color: $main-light;
+    cursor: pointer;
 }
 .anime-genre:hover {
-    background-color: #4386a5;
+    background-color: $main-light;
+    color: $anime-highlight;
 }
-.anime-genre:active {
-    background-color: #3b7691;
-}
+// .anime-genre:active {
+//     background-color: #3b7691;
+// }

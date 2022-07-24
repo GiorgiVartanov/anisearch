@@ -51,7 +51,7 @@ const AnimeCard = ({ id }) => {
                 <p className={`${data.Media.status}`}> {data.Media.status}</p>
                 <div className="card-footer bg-dark">
                     <Link
-                        to={`/animelist/${id}`}
+                        to={`/animeinfo/${id}`}
                         className="button-medium see-full-button"
                     >
                         See Full Info
