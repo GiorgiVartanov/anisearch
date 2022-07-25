@@ -26,15 +26,48 @@ const GET_ANIME_CARD = gql`
             id
             title {
                 romaji
-                native
             }
             status
-            episodes
-            duration
-            source
             coverImage {
                 large
-                medium
+            }
+            genres
+            averageScore
+        }
+    }
+`;
+
+const GET_SEARCHED_ANIME = gql`
+    query getSearchedAnime(
+        $search: String
+        $startDate_greater: FuzzyDateInt
+        $startDate_lesser: FuzzyDateInt
+        $endDate_greater: FuzzyDateInt
+        $endDate_lesser: FuzzyDateInt
+        $format_in: [MediaFormat]
+        $episodes_greater: Int
+        $episodes_lesser: Int
+        $genre_in: [String]
+    ) {
+        Media(
+            type: ANIME
+            search: $search
+            startDate_greater: $startDate_greater
+            startDate_lesser: $startDate_lesser
+            endDate_greater: $endDate_greater
+            endDate_lesser: $endDate_lesser
+            format_in: $format_in
+            episodes_greater: $episodes_greater
+            episodes_lesser: $episodes_lesser
+            genre_in: $genre_in
+        ) {
+            id
+            title {
+                romaji
+            }
+            status
+            coverImage {
+                large
             }
             genres
             averageScore
@@ -88,4 +121,4 @@ const GET_ANIME_PAGE = gql`
     }
 `;
 
-export { GET_ANIME_LIST, GET_ANIME_CARD, GET_ANIME_PAGE };
+export { GET_ANIME_LIST, GET_SEARCHED_ANIME, GET_ANIME_CARD, GET_ANIME_PAGE };

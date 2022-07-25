@@ -7,16 +7,16 @@ import { Link } from "react-router-dom";
 
 import { GET_ANIME_CARD } from "../../../queries/animeQueries";
 
-const AnimeCard = ({ id }) => {
+const AnimeCard = ({ myref, id }) => {
     const { loading, error, data } = useQuery(GET_ANIME_CARD, {
         variables: { id: id },
     });
 
     if (loading) return <p>Loading...</p>;
-    if (error) return <p>Something Went Wrong</p>;
+    if (error) return null;
 
     return (
-        <div className="item">
+        <div className="item" ref={myref}>
             <img
                 className=""
                 src={`${data.Media.coverImage.large}`}

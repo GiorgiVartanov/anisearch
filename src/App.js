@@ -11,27 +11,14 @@ import NotFound from "./pages/not-found.page/NotFound.page";
 import NavBar from "./components/header/nav-bar.component/NavBar";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
+import {
+    ApolloProvider,
+    ApolloClient,
+    InMemoryCache,
+    Reference,
+} from "@apollo/client";
 
-const cache = new InMemoryCache({
-    // to dial with the error
-    typePolicies: {
-        Query: {
-            fields: {
-                clients: {
-                    merge(existing, incoming) {
-                        return incoming;
-                    },
-                },
-                projects: {
-                    merge(existing, incoming) {
-                        return incoming;
-                    },
-                },
-            },
-        },
-    },
-});
+import { cache } from "./cache";
 
 const client = new ApolloClient({
     uri: "https://graphql.anilist.co",
@@ -48,12 +35,12 @@ function App() {
                     <Route path="/about" element={<About />} />
                     <Route path="/characterlist" element={<CharacterList />} />
                     <Route
-                        path="/characterlist/:id"
+                        path="/characterinfo/:id"
                         element={<CharacterInfo />}
                     />
-                    <Route path="/mangalist/:page" element={<MangaList />} />
+                    <Route path="/mangalist" element={<MangaList />} />
                     <Route path="/mangainfo/:id" element={<MangaInfo />} />
-                    <Route path="/animelist/:page" element={<AnimeList />} />
+                    <Route path="/animelist" element={<AnimeList />} />
                     <Route path="/animeinfo/:id" element={<AnimeInfo />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>

@@ -14,17 +14,17 @@ const DropDown = ({ name }) => {
             <div className={`drop-down-content ${isOpened ? "border" : ""}`}>
                 <ul>
                     <li>
-                        <NavLink className="nav-item" to="/animelist/1">
+                        <NavLink className="nav-item" to="/animelist">
                             Anime
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink className="nav-item" to="/mangalist/1">
+                        <NavLink className="nav-item" to="/mangalist">
                             Manga
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink className="nav-item" to="/characterlist/1">
+                        <NavLink className="nav-item" to="/characterlist">
                             Characters
                         </NavLink>
                     </li>
