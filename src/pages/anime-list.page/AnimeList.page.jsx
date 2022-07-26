@@ -11,13 +11,13 @@ const AnimeList = () => {
     const [animeToSearch, setAnimeToSearch] = useState("");
     const [hasMore, setHasMore] = useState(false); // data.Page.pageInfo.hasNextPage
 
-    const [page, setPage] = useState(1);
-
     const { loading, error, data, fetchMore } = useQuery(GET_ANIME_LIST, {
         variables: { page: 1, perPage: 10 },
     });
 
     const [isLoadingMore, setIsLoadingMore] = useState(false);
+
+    let page = 1; // I am not sure if it is right to use something like this in react
 
     const observer = useRef();
     const lastAnime = useCallback(
@@ -39,15 +39,10 @@ const AnimeList = () => {
                             previousResult,
                             { fetchMoreResult, queryVariables }
                         ) => {
-                            console.log("PREVIOUS RESULT : ", previousResult);
-                            console.log(
-                                "FETCH MORE RESULT : ",
-                                fetchMoreResult
-                            );
+                            page++;
                             return fetchMoreResult;
                         },
                     });
-                    setPage(page + 1);
                 }
             });
             if (node) observer.current.observe(node);
@@ -60,20 +55,10 @@ const AnimeList = () => {
 
         setSearchedValue(e.target.value);
         setCurrentPage(1);
-
-        // clearTimeout(timer);
-        // var timer = setTimeout(() => {
-        //     console.log(searchedAnime);
-        // }, 3000);
     };
 
     useEffect(() => {
-        console.log("page : ", page);
-    }, [page]);
-
-    useEffect(() => {
         const timer = setTimeout(() => {
-            // console.log(searchedValue);
             setAnimeToSearch(searchedValue);
         }, 1500);
 
@@ -83,35 +68,8 @@ const AnimeList = () => {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Something Went Wrong</p>;
 
-    // console.log(parseInt(data.Page.pageInfo.currentPage) + 1);
-
-    // console.log("DATA : ", data.Page.media);
-
     return (
         <>
-            {/* <button
-                onClick={() => {
-                    fetchMore({
-                        variables: {
-                            page: page + 1,
-                        },
-                        updateQuery: (
-                            previousResult,
-                            { fetchMoreResult, queryVariables }
-                        ) => {
-                            console.log("PREVIOUS RESULT : ", previousResult);
-                            console.log(
-                                "FETCH MORE RESULT : ",
-                                fetchMoreResult
-                            );
-                            return fetchMoreResult;
-                        },
-                    });
-                    setPage(page + 1);
-                }}
-            >
-                MORE
-            </button> */}
             <input type="text" onChange={handleSearch} />
             <AnimeCards data={data.Page.media} myref={lastAnime} />
         </>

@@ -10,6 +10,11 @@ export const cache = new InMemoryCache({
                         return [...existing, ...incoming];
                     },
                 },
+                pageInfo: {
+                    merge(existing, incoming) {
+                        return incoming;
+                    },
+                },
             },
         },
     },
