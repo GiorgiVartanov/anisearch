@@ -14,7 +14,7 @@ const AnimeList = () => {
     const [page, setPage] = useState(1);
 
     const { loading, error, data, fetchMore } = useQuery(GET_ANIME_LIST, {
-        variables: { page: 1 /*page*/, perPage: 10 },
+        variables: { page: 1, perPage: 10 },
     });
 
     const [isLoadingMore, setIsLoadingMore] = useState(false);
@@ -31,13 +31,23 @@ const AnimeList = () => {
                     entries[0].isIntersecting &&
                     data.Page.pageInfo.hasNextPage
                 ) {
-                    // setPage(page+1)
-                    console.log("you reached bottom");
-                    // return fetchMore({
-                    //     variables: {
-                    //         page: data.Page.pageInfo.currentPage + 1,
-                    //     },
-                    // });
+                    fetchMore({
+                        variables: {
+                            page: page + 1,
+                        },
+                        updateQuery: (
+                            previousResult,
+                            { fetchMoreResult, queryVariables }
+                        ) => {
+                            console.log("PREVIOUS RESULT : ", previousResult);
+                            console.log(
+                                "FETCH MORE RESULT : ",
+                                fetchMoreResult
+                            );
+                            return fetchMoreResult;
+                        },
+                    });
+                    setPage(page + 1);
                 }
             });
             if (node) observer.current.observe(node);
@@ -58,6 +68,10 @@ const AnimeList = () => {
     };
 
     useEffect(() => {
+        console.log("page : ", page);
+    }, [page]);
+
+    useEffect(() => {
         const timer = setTimeout(() => {
             // console.log(searchedValue);
             setAnimeToSearch(searchedValue);
@@ -71,24 +85,33 @@ const AnimeList = () => {
 
     // console.log(parseInt(data.Page.pageInfo.currentPage) + 1);
 
-    console.log("DATA : ", data);
+    // console.log("DATA : ", data.Page.media);
 
     return (
         <>
-            <button
-                onClick={async () => {
-                    setIsLoadingMore(true);
-                    await fetchMore({
+            {/* <button
+                onClick={() => {
+                    fetchMore({
                         variables: {
                             page: page + 1,
                         },
+                        updateQuery: (
+                            previousResult,
+                            { fetchMoreResult, queryVariables }
+                        ) => {
+                            console.log("PREVIOUS RESULT : ", previousResult);
+                            console.log(
+                                "FETCH MORE RESULT : ",
+                                fetchMoreResult
+                            );
+                            return fetchMoreResult;
+                        },
                     });
                     setPage(page + 1);
-                    setIsLoadingMore(false);
                 }}
             >
                 MORE
-            </button>
+            </button> */}
             <input type="text" onChange={handleSearch} />
             <AnimeCards data={data.Page.media} myref={lastAnime} />
         </>
