@@ -41,6 +41,7 @@ function App() {
                     <Route path="/mangalist" element={<MangaList />} />
                     <Route path="/mangainfo/:id" element={<MangaInfo />} />
                     <Route path="/animelist" element={<AnimeList />} />
+                    <Route path="/animelist/:search" element={<AnimeList />} />
                     <Route path="/animeinfo/:id" element={<AnimeInfo />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
@@ -49,4 +50,5 @@ function App() {
     );
 }
 
+export { client };
 export default App;

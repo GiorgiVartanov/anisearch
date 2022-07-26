@@ -1,4 +1,4 @@
-import "./animeCard.scss";
+import "./mangaCard.scss";
 
 import Genre from "../../utility/genre.component/Genre";
 import LoadingCard from "../loading-card/LoadingCard";
@@ -6,7 +6,7 @@ import LoadingCard from "../loading-card/LoadingCard";
 import { useQuery } from "@apollo/client/react";
 import { Link } from "react-router-dom";
 
-const AnimeCard = ({
+const MangaCard = ({
     myref,
     id,
     title,
@@ -31,7 +31,7 @@ const AnimeCard = ({
                 <p className={`${status}`}> {status}</p>
                 <div className="card-footer bg-dark">
                     <Link
-                        to={`/animeinfo/${id}`}
+                        to={`/mangainfo/${id}`}
                         className="button-medium see-full-button"
                     >
                         See Full Info
@@ -42,4 +42,4 @@ const AnimeCard = ({
     );
 };
 
-export default AnimeCard;
+export default MangaCard;

@@ -1,20 +1,19 @@
-import "./animeCards.scss";
+import "./mangaCards.scss";
 
-import AnimeCard from "../anime-card/AnimeCard.jsx";
-import PageSelect from "../../utility/pageSelect.component/PageSelect";
+import MangaCard from "../manga-card/MangaCard";
 
 import { useState, useEffect, useRef, useCallback } from "react";
 
 import { Link } from "react-router-dom";
 
-const AnimeCards = ({ data, myref }) => {
+const MangaCards = ({ data, myref }) => {
     return (
         <div className="changed-centered">
             <div className="item-holder">
                 {data.map((show, index) => {
                     if (data.length === index + 1) {
                         return (
-                            <AnimeCard
+                            <MangaCard
                                 myref={myref}
                                 key={show.id}
                                 id={show.id}
@@ -27,7 +26,7 @@ const AnimeCards = ({ data, myref }) => {
                         );
                     } else {
                         return (
-                            <AnimeCard
+                            <MangaCard
                                 key={show.id}
                                 id={show.id}
                                 title={show.title.romaji}
@@ -44,4 +43,4 @@ const AnimeCards = ({ data, myref }) => {
     );
 };
 
-export default AnimeCards;
+export default MangaCards;

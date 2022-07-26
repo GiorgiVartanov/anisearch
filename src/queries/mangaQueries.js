@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
-const GET_ANIME_LIST = gql`
-    query getAnimeList($id: Int, $page: Int, $perPage: Int, $search: String) {
+const GET_MANGA_LIST = gql`
+    query getMangaList($id: Int, $page: Int, $perPage: Int, $search: String) {
         Page(page: $page, perPage: $perPage) {
             pageInfo {
                 total
@@ -10,7 +10,7 @@ const GET_ANIME_LIST = gql`
                 hasNextPage
                 perPage
             }
-            media(id: $id, search: $search, type: ANIME) {
+            media(id: $id, search: $search, type: MANGA) {
                 id
                 title {
                     romaji
@@ -26,9 +26,9 @@ const GET_ANIME_LIST = gql`
     }
 `;
 
-const GET_ANIME_CARD = gql`
-    query getAnimeCard($id: Int) {
-        Media(id: $id, type: ANIME) {
+const GET_MANGA_CARD = gql`
+    query getMangaCard($id: Int) {
+        Media(id: $id, type: MANGA) {
             id
             title {
                 romaji
@@ -43,8 +43,8 @@ const GET_ANIME_CARD = gql`
     }
 `;
 
-const GET_SEARCHED_ANIME = gql`
-    query getSearchedAnime(
+const GET_SEARCHED_MANGA = gql`
+    query getSearchedManga(
         $search: String
         $startDate_greater: FuzzyDateInt
         $startDate_lesser: FuzzyDateInt
@@ -81,9 +81,9 @@ const GET_SEARCHED_ANIME = gql`
     }
 `;
 
-const GET_ANIME_PAGE = gql`
-    query getAnimePage($id: Int) {
-        Media(id: $id, type: ANIME) {
+const GET_MANGA_PAGE = gql`
+    query getMangaPage($id: Int) {
+        Media(id: $id, type: MANGA) {
             title {
                 romaji
                 native
@@ -101,8 +101,8 @@ const GET_ANIME_PAGE = gql`
                 day
             }
             seasonYear
-            episodes
-            duration
+            chapters
+            volumes
             source
             coverImage {
                 large
@@ -127,4 +127,4 @@ const GET_ANIME_PAGE = gql`
     }
 `;
 
-export { GET_ANIME_LIST, GET_SEARCHED_ANIME, GET_ANIME_CARD, GET_ANIME_PAGE };
+export { GET_MANGA_LIST, GET_SEARCHED_MANGA, GET_MANGA_CARD, GET_MANGA_PAGE };
