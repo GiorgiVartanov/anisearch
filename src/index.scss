@@ -16,6 +16,9 @@ body {
     -moz-osx-font-smoothing: grayscale;
 
     font-family: "Poppins", sans-serif !important;
+
+    display: flex;
+    flex-direction: column;
 }
 
 code {
@@ -187,6 +190,10 @@ button:hover {
     margin: 5rem auto;
     font-weight: bold;
     text-align: center;
+}
+.centered-text {
+    text-align: center;
+    margin-top: 3rem;
 }
 
 .fix-btn {

@@ -1,14 +1,14 @@
 import Home from "./pages/home.page/Home.page";
 import About from "./pages/about.page/About.page";
-import CharacterList from "./pages/character-list.page/CharacterList.page";
 import CharacterInfo from "./pages/character-info.page/CharacterInfo.page";
-import MangaList from "./pages/manga-list.page/MangaList.page";
 import MangaInfo from "./pages/manga-info.page/MangaInfo.page";
-import AnimeList from "./pages/anime-list.page/AnimeList.page";
 import AnimeInfo from "./pages/anime-info.page/AnimeInfo.page";
 import NotFound from "./pages/not-found.page/NotFound.page";
 
+import Search from "./pages/search.page/Search.page";
+
 import NavBar from "./components/header/nav-bar.component/NavBar";
+import Footer from "./components/footer/Footer";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
@@ -33,18 +33,14 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/about" element={<About />} />
-                    <Route path="/characterlist" element={<CharacterList />} />
                     <Route
-                        path="/characterinfo/:id"
-                        element={<CharacterInfo />}
+                        path="/animeinfo/:type/:id"
+                        element={<AnimeInfo />}
                     />
-                    <Route path="/mangalist" element={<MangaList />} />
-                    <Route path="/mangainfo/:id" element={<MangaInfo />} />
-                    <Route path="/animelist" element={<AnimeList />} />
-                    <Route path="/animelist/:search" element={<AnimeList />} />
-                    <Route path="/animeinfo/:id" element={<AnimeInfo />} />
+                    <Route path="/search" element={<Search />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
+                <Footer />
             </Router>
         </ApolloProvider>
     );

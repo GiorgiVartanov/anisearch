@@ -1,40 +1,12 @@
 import { gql } from "@apollo/client";
 
-const GET_ANIME_LIST_MAIN_PAGE = gql`
-    query getAnimeList(
-        $id: Int
-        $page: Int
-        $perPage: Int
-        $search: String
-        $sort: [MediaSort]
-    ) {
-        Page(page: $page, perPage: $perPage) {
-            pageInfo {
-                total
-                currentPage
-                lastPage
-                hasNextPage
-                perPage
-            }
-            media(id: $id, search: $search, type: ANIME, sort: $sort) {
-                id
-                title {
-                    romaji
-                }
-                coverImage {
-                    large
-                }
-            }
-        }
-    }
-`;
-
 const GET_ANIME_LIST = gql`
     query getAnimeList(
         $id: Int
         $page: Int
         $perPage: Int
         $search: String
+        $type: MediaType
         $sort: [MediaSort]
     ) {
         Page(page: $page, perPage: $perPage) {
@@ -45,17 +17,14 @@ const GET_ANIME_LIST = gql`
                 hasNextPage
                 perPage
             }
-            media(id: $id, search: $search, type: ANIME, sort: $sort) {
+            media(id: $id, search: $search, type: $type, sort: $sort) {
                 id
                 title {
                     romaji
                 }
-                status
                 coverImage {
                     large
                 }
-                genres
-                averageScore
             }
         }
     }
@@ -117,8 +86,8 @@ const GET_SEARCHED_ANIME = gql`
 `;
 
 const GET_ANIME_PAGE = gql`
-    query getAnimePage($id: Int) {
-        Media(id: $id, type: ANIME) {
+    query getAnimePage($id: Int, $type: MediaType) {
+        Media(id: $id, type: $type) {
             title {
                 romaji
                 native
@@ -162,10 +131,4 @@ const GET_ANIME_PAGE = gql`
     }
 `;
 
-export {
-    GET_ANIME_LIST_MAIN_PAGE,
-    GET_ANIME_LIST,
-    GET_SEARCHED_ANIME,
-    GET_ANIME_CARD,
-    GET_ANIME_PAGE,
-};
+export { GET_ANIME_LIST, GET_SEARCHED_ANIME, GET_ANIME_CARD, GET_ANIME_PAGE };

@@ -9,10 +9,10 @@ import { useQuery } from "@apollo/client";
 import { GET_ANIME_PAGE } from "../../queries/animeQueries";
 
 const AnimeInfo = () => {
-    const { id } = useParams();
+    const { type, id } = useParams();
 
     const { loading, error, data } = useQuery(GET_ANIME_PAGE, {
-        variables: { id: id },
+        variables: { id: id, type: type },
     });
 
     if (loading) return <p>Loading...</p>;
@@ -36,8 +36,8 @@ const AnimeInfo = () => {
                 <div className="small-info">
                     <p>{data.Media.averageScore} / 100</p>
                     <p className={data.Media.status}>{data.Media.status}</p>
-                    <p>episodes : {data.Media.episodes}</p>
-                    <p>duration : {data.Media.duration}</p>
+                    {/* <p>episodes : {data.Media.episodes}</p> */}
+                    {/* <p>duration : {data.Media.duration}</p> */}
                     <p>source : {data.Media.source}</p>
                     <p>
                         start date : {data.Media.startDate.year}/

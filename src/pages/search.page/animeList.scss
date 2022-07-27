@@ -1,0 +1,17 @@
+@import "../../scss-variables.scss";
+
+.select-holder {
+    text-align: center;
+    white-space: nowrap;
+
+    .type-select {
+        border: none;
+        font-size: 1.1rem;
+        color: $main-light;
+        background-color: $main-dark;
+        border-radius: 0.25rem;
+        font-weight: bold;
+        padding: 0 0.25rem;
+        margin: 0.5rem;
+    }
+}

@@ -1,9 +1,14 @@
+import "./animeList.scss";
+
 import AnimeCards from "../../components/body/anime-cards/AnimeCards";
 
 import { useState, useEffect } from "react";
 
-const AnimeList = () => {
+const Search = () => {
+    const selectOptions = ["ANIME", "MANGA"];
+
     const [searchedValue, setSearchedValue] = useState("");
+    const [searchedType, setSearchedType] = useState("ANIME");
     const [animeToSearch, setAnimeToSearch] = useState(null);
 
     const handleSearch = (e) => {
@@ -15,6 +20,10 @@ const AnimeList = () => {
 
     const handleSubmit = (e) => {};
 
+    const handleTypeSelect = (e) => {
+        setSearchedType(selectOptions[e.target.selectedIndex]);
+    };
+
     useEffect(() => {
         const timer = setTimeout(() => {
             setAnimeToSearch(searchedValue);
@@ -22,6 +31,10 @@ const AnimeList = () => {
 
         return () => clearTimeout(timer);
     }, [searchedValue]);
+
+    // useEffect(() => {
+    //     console.log(searchedType);
+    // }, [searchedType]);
 
     // useEffect(() => {
     //     console.log(animeToSearch);
@@ -37,15 +50,28 @@ const AnimeList = () => {
 
     return (
         <>
+            <h3 className="select-holder">
+                SEARCH FOR
+                <select onChange={handleTypeSelect} className="type-select">
+                    <option value="ANIME">ANIME</option>
+                    <option value="MANGA">MANGA</option>
+                </select>
+            </h3>
             <input
                 type="text"
                 className="search-bar"
                 onChange={handleSearch}
                 value={searchedValue}
             />
-            <AnimeCards search={animeToSearch} />;
+            <AnimeCards
+                search={animeToSearch}
+                type={searchedType}
+                perPage={30}
+                findMore={true}
+            />
+            ;
         </>
     );
 };
 
-export default AnimeList;
+export default Search;

@@ -14,7 +14,9 @@ const NavBar = () => {
                     </NavLink>
                 </li>
                 <li>
-                    <DropDown name={"Search"} />
+                    <NavLink className="nav-item" to="/search">
+                        Search
+                    </NavLink>
                 </li>
                 <li>
                     <NavLink className="nav-item" to="/about">
