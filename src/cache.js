@@ -19,24 +19,3 @@ export const cache = new InMemoryCache({
         },
     },
 });
-// export const cache = new InMemoryCache({
-//     typePolicies: {
-//         Page: {
-//             fields: {
-//                 media: {
-//                     keyArgs: [],
-//                     merge(existing = [], incoming) {
-//                         console.log("EXISTING ", existing);
-//                         console.log("INCOMING ", incoming);
-//                         return [...existing, ...incoming];
-//                     },
-//                 },
-//                 pageInfo: {
-//                     merge(existing, incoming) {
-//                         return incoming;
-//                     },
-//                 },
-//             },
-//         },
-//     },
-// });

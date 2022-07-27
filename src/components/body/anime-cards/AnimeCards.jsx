@@ -51,7 +51,6 @@ const AnimeCards = ({ search }) => {
     );
 
     useEffect(() => {
-        console.log("AnimeCards : ", search);
         client.resetStore();
         if (search === "")
             getNew({
@@ -60,6 +59,7 @@ const AnimeCards = ({ search }) => {
                     previousResult,
                     { fetchMoreResult, queryVariables }
                 ) => {
+                    page = 1;
                     return fetchMoreResult;
                 },
             });
@@ -70,14 +70,17 @@ const AnimeCards = ({ search }) => {
                     previousResult,
                     { fetchMoreResult, queryVariables }
                 ) => {
+                    page = 1;
                     return fetchMoreResult;
                 },
             });
     }, [search]);
 
-    if (!data) return <p>No Data</p>;
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Something Went Wrong</p>;
+    if (!data) return <p className="warning">No Data</p>;
+    if (loading) return <p className="warning">Loading...</p>;
+    if (error) return <p className="warning">Something Went Wrong</p>;
+    if (data.Page.media.length < 1)
+        return <p className="warning">No Results ⬇️</p>;
 
     return (
         <div className="changed-centered">

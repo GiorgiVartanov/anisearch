@@ -13,6 +13,8 @@ const AnimeList = () => {
         setSearchedValue(e.target.value);
     };
 
+    const handleSubmit = (e) => {};
+
     useEffect(() => {
         const timer = setTimeout(() => {
             setAnimeToSearch(searchedValue);
@@ -35,7 +37,12 @@ const AnimeList = () => {
 
     return (
         <>
-            <input type="text" onChange={handleSearch} value={searchedValue} />
+            <input
+                type="text"
+                className="search-bar"
+                onChange={handleSearch}
+                value={searchedValue}
+            />
             <AnimeCards search={animeToSearch} />;
         </>
     );

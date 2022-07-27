@@ -67,22 +67,20 @@ button:hover {
 
     display: flex;
     flex-direction: column;
-    margin-top: 5rem;
-    margin-bottom: 5rem;
     // grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
     margin: 1rem;
     max-width: 800px;
     min-width: 200px;
-    margin: 5rem 1rem;
+    margin: 3rem 1rem;
 
     .item {
-        background-color: $main-dark;
         color: $main-light;
         border: 1px solid $main-light;
         // border-radius: 0.5rem;
-        border-radius: 1rem 0.5rem 0.5rem 1rem;
+        border-radius: 0.6rem;
         display: flex;
+        box-shadow: 0 0 10px 3px $shadow-color;
 
         img {
             object-fit: cover;
@@ -90,10 +88,13 @@ button:hover {
             border-right: 1px solid $anime-highlight;
         }
         .item-body {
+            background-color: $main-dark;
             padding: 1rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            width: 100%;
+            border-radius: 0 0.5rem 0.5rem 0;
         }
     }
 }
@@ -174,10 +175,18 @@ button:hover {
     margin: 2.5rem auto;
     display: block;
     outline: none;
-    border: 2px solid $main-dark;
+    border: none;
+    // border: 2px solid $main-dark;
     text-align: center;
-    padding: 0.25rem;
+    padding: 0.5rem;
+    box-shadow: 0 0 5px 1px $shadow-color;
     border-radius: 0.5rem;
+}
+
+.warning {
+    margin: 5rem auto;
+    font-weight: bold;
+    text-align: center;
 }
 
 .fix-btn {
