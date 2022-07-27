@@ -1,9 +1,5 @@
 import "./animeCard.scss";
 
-import Genre from "../../utility/genre.component/Genre";
-import LoadingCard from "../loading-card/LoadingCard";
-
-import { useQuery } from "@apollo/client/react";
 import { Link } from "react-router-dom";
 
 const AnimeCard = ({ myref, id, title, coverImage, type }) => {

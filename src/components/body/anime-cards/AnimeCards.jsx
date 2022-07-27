@@ -3,8 +3,7 @@ import "./animeCards.scss";
 import AnimeCard from "../anime-card/AnimeCard.jsx";
 
 import { useLazyQuery, useQuery } from "@apollo/client";
-import { useState, useEffect, useRef, useCallback } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useEffect, useRef, useCallback } from "react";
 
 import { client } from "../../../App";
 

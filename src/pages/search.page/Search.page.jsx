@@ -18,7 +18,7 @@ const Search = () => {
         setSearchedValue(e.target.value);
     };
 
-    const handleSubmit = (e) => {};
+    // const handleSubmit = (e) => {};
 
     const handleTypeSelect = (e) => {
         setSearchedType(selectOptions[e.target.selectedIndex]);

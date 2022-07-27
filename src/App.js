@@ -1,7 +1,5 @@
 import Home from "./pages/home.page/Home.page";
 import About from "./pages/about.page/About.page";
-import CharacterInfo from "./pages/character-info.page/CharacterInfo.page";
-import MangaInfo from "./pages/manga-info.page/MangaInfo.page";
 import AnimeInfo from "./pages/anime-info.page/AnimeInfo.page";
 import NotFound from "./pages/not-found.page/NotFound.page";
 
@@ -11,12 +9,7 @@ import NavBar from "./components/header/nav-bar.component/NavBar";
 import Footer from "./components/footer/Footer";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import {
-    ApolloProvider,
-    ApolloClient,
-    InMemoryCache,
-    Reference,
-} from "@apollo/client";
+import { ApolloProvider, ApolloClient } from "@apollo/client";
 
 import { cache } from "./cache";
 
