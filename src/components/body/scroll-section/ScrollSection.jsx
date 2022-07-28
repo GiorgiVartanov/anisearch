@@ -1,14 +1,23 @@
+import "./scrollSection.scss";
+
 import AnimeCards from "../anime-cards/AnimeCards";
 
-const ScrollSection = ({ name, sortBy }) => {
+import { Link } from "react-router-dom";
+
+const ScrollSection = ({ name, sortBy, status }) => {
     return (
         <article className="anime-section-holder">
-            <h3>{name}</h3>
+            <div className="article-text">
+                <h3>{name}</h3>
+                <Link to={`/${sortBy}`}>see more</Link>
+            </div>
+
             <div className="show-list">
                 <AnimeCards
                     type="ANIME"
                     perPage={5}
                     sortBy={sortBy}
+                    status={status}
                     findMore={false}
                 />
             </div>

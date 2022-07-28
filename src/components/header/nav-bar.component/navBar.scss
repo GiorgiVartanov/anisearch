@@ -7,6 +7,8 @@ nav {
     padding: 1rem;
     // border-bottom: 1px solid $main-light;
     box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.15);
+
+    animation: slide-from-top 0.2s ease-out;
 }
 nav ul {
     list-style: none;
@@ -27,4 +29,13 @@ nav ul li a {
 }
 nav ul li a:hover {
     opacity: 0.8;
+}
+
+@keyframes slide-from-top {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
 }

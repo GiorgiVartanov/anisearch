@@ -1,25 +1,54 @@
-.relations {
-    margin-top: 2rem;
+@import "../../scss-variables.scss";
+
+.info-page {
+    // background-color: red;
+    .small-info {
+        .score {
+        }
+        .not-available {
+            color: $main-dimmed;
+        }
+    }
 }
-.relation-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    margin: auto;
+
+.genre-holder {
+    display: flex;
+    flex-wrap: wrap;
     gap: 0.5rem;
 }
 
-@media (max-width: 1000px) {
+.relations {
+    & > h3 {
+        margin: 2rem auto 1rem;
+        text-align: center;
+    }
+}
+.relation-list {
+    width: fit-content;
+    margin: auto;
+    display: grid;
+    justify-content: center;
+    gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media screen and (max-width: 1200px) {
+    .relation-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media screen and (max-width: 1000px) {
+    .relation-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media screen and (max-width: 800px) {
     .relation-list {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-@media (max-width: 600px) {
+@media screen and (max-width: 600px) {
     .relation-list {
-        grid-template-columns: repeat(1, 1fr);
-    }
-}
-@media (max-width: 400px) {
-    .relation-list {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 }

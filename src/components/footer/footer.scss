@@ -4,4 +4,17 @@ footer {
     background-color: $main-dark;
     margin-top: 3rem;
     min-height: 100px;
+    margin-top: auto;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.15);
+
+    animation: slide-from-bottom 0.2s ease-out;
+}
+
+@keyframes slide-from-bottom {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
 }

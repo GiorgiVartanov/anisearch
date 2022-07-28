@@ -4,14 +4,24 @@ const Home = () => {
     return (
         <>
             <section>
-                <ScrollSection name={"Trending Now"} sortBy={"TRENDING"} />
+                <ScrollSection
+                    name={"Future Shows"}
+                    status={"NOT_YET_RELEASED"}
+                    sortBy={"POPULARITY_DESC"}
+                />
+                <ScrollSection
+                    name={"Trending Now"}
+                    status={"RELEASING"}
+                    sortBy={"TRENDING_DESC"}
+                />
                 <ScrollSection
                     name={"Popular This Season"}
-                    sortBy={"EPISODES"}
+                    status={"RELEASING"}
+                    sortBy={"POPULARITY_DESC"}
                 />
                 <ScrollSection
                     name={"All Time Popular"}
-                    sortBy={"POPULARITY"}
+                    sortBy={"POPULARITY_DESC"}
                 />
             </section>
         </>

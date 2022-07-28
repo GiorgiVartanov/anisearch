@@ -1,9 +1,13 @@
 import "./genre.scss";
 
+import { Link } from "react-router-dom";
+
 const Genre = ({ name }) => {
     return (
         // make it link to page with this genre
-        <button className="button-small anime-genre">{name}</button>
+        <Link className="anime-genre" to={`/genres/${name}`}>
+            {name}
+        </Link>
     );
 };
 

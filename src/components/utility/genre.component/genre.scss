@@ -4,6 +4,9 @@
     background-color: $anime-highlight;
     color: $main-light;
     cursor: pointer;
+    border-radius: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    white-space: nowrap;
 }
 .anime-genre:hover {
     background-color: $main-light;

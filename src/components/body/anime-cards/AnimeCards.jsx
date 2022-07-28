@@ -2,14 +2,14 @@ import "./animeCards.scss";
 
 import AnimeCard from "../anime-card/AnimeCard.jsx";
 
-import { useLazyQuery, useQuery } from "@apollo/client";
+import { useLazyQuery } from "@apollo/client";
 import { useEffect, useRef, useCallback } from "react";
 
 import { client } from "../../../App";
 
 import { GET_ANIME_LIST } from "../../../queries/animeQueries";
 
-const AnimeCards = ({ search, type, perPage, sortBy, findMore }) => {
+const AnimeCards = ({ search, type, perPage, sortBy, status, findMore }) => {
     const [getNew, { loading, error, data, fetchMore }] =
         useLazyQuery(GET_ANIME_LIST);
     // const { loading, error, data, fetchMore } = useQuery(GET_ANIME_LIST, {
@@ -74,6 +74,7 @@ const AnimeCards = ({ search, type, perPage, sortBy, findMore }) => {
                         type: type,
                         search: search,
                         sort: sortBy,
+                        status: status,
                     },
                     updateQuery: (
                         previousResult,
@@ -91,6 +92,7 @@ const AnimeCards = ({ search, type, perPage, sortBy, findMore }) => {
                         type: type,
                         search: search,
                         sort: sortBy,
+                        status: status,
                     },
                     fetchPolicy: "no-cache",
                 });
@@ -98,9 +100,9 @@ const AnimeCards = ({ search, type, perPage, sortBy, findMore }) => {
         }
     }, [search, type, perPage]);
 
-    if (!data) return <p className="warning">No Data</p>;
     if (loading) return <p className="warning">Loading...</p>;
     if (error) return <p className="warning">Something Went Wrong</p>;
+    if (!data) return <p className="warning">No Data</p>;
     if (data.Page.media.length < 1)
         return <p className="warning">No Results</p>;
 

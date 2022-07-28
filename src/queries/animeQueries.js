@@ -8,6 +8,7 @@ const GET_ANIME_LIST = gql`
         $search: String
         $type: MediaType
         $sort: [MediaSort]
+        $status: MediaStatus
     ) {
         Page(page: $page, perPage: $perPage) {
             pageInfo {
@@ -17,13 +18,32 @@ const GET_ANIME_LIST = gql`
                 hasNextPage
                 perPage
             }
-            media(id: $id, search: $search, type: $type, sort: $sort) {
+            media(
+                id: $id
+                search: $search
+                type: $type
+                sort: $sort
+                status: $status
+            ) {
                 id
                 title {
                     romaji
                 }
                 coverImage {
                     large
+                }
+            }
+        }
+    }
+`;
+
+const GET_ANIME_MEDIA_TREND = gql`
+    query getAnimeMediaTrend($sort: [MediaTrendSort]) {
+        MediaTrend(sort: $sort) {
+            media {
+                id
+                title {
+                    romaji
                 }
             }
         }
@@ -124,6 +144,10 @@ const GET_ANIME_PAGE = gql`
                             romaji
                             native
                         }
+                        coverImage {
+                            large
+                        }
+                        type
                     }
                 }
             }
@@ -131,4 +155,10 @@ const GET_ANIME_PAGE = gql`
     }
 `;
 
-export { GET_ANIME_LIST, GET_SEARCHED_ANIME, GET_ANIME_CARD, GET_ANIME_PAGE };
+export {
+    GET_ANIME_LIST,
+    GET_ANIME_MEDIA_TREND,
+    GET_SEARCHED_ANIME,
+    GET_ANIME_CARD,
+    GET_ANIME_PAGE,
+};

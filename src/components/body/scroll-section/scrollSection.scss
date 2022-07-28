@@ -1,0 +1,36 @@
+@import "../../../scss-variables.scss";
+
+.article-text {
+    display: flex;
+    justify-content: space-between;
+    width: calc(200px * 5 + 16px * 4 * 0.5);
+    border-top: 1px solid $main-dark;
+    margin: 3rem auto 1rem;
+
+    & > h3 {
+        display: inline;
+    }
+    & > a {
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .article-text {
+        width: calc(200px * 4 + 16px * 3 * 0.5);
+    }
+}
+@media screen and (max-width: 1000px) {
+    .article-text {
+        width: calc(200px * 3 + 16px * 2 * 0.5);
+    }
+}
+@media screen and (max-width: 800px) {
+    .article-text {
+        width: calc(180px * 2 + 16px * 1 * 0.5);
+    }
+}
+@media screen and (max-width: 600px) {
+    .article-text {
+        width: calc(140px * 2 + 16px * 1 * 0.5);
+    }
+}
