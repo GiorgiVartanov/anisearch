@@ -11,6 +11,11 @@
         display: inline;
     }
     & > a {
+        text-decoration: underline;
+        color: $main-cta;
+        &:hover {
+            color: $small-cta;
+        }
     }
 }
 

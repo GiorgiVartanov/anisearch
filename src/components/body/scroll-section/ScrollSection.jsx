@@ -9,7 +9,9 @@ const ScrollSection = ({ name, sortBy, status }) => {
         <article className="anime-section-holder">
             <div className="article-text">
                 <h3>{name}</h3>
-                <Link to={`/${sortBy}`}>see more</Link>
+                <Link className="see-more-link" to={`/${sortBy}`}>
+                    see more
+                </Link>
             </div>
 
             <div className="show-list">
