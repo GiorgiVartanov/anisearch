@@ -3,6 +3,11 @@
 .info-page {
     // background-color: red;
     .small-info {
+        .title {
+            .sub-title {
+                color: $main-dimmed;
+            }
+        }
         .score {
         }
         .not-available {

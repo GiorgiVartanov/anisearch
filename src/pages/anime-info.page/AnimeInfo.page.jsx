@@ -35,6 +35,12 @@ const AnimeInfo = () => {
 
             <div className="info-page">
                 <div className="small-info">
+                    <h2 className="title">
+                        {data.Media.title.romaji}
+                        <span className="sub-title">
+                            {data.Media.title.native}
+                        </span>
+                    </h2>
                     {data.Media.averageScore ? (
                         <p className="score">{data.Media.averageScore} / 100</p>
                     ) : (

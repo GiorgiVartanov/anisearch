@@ -9,7 +9,18 @@ import { client } from "../../../App";
 
 import { GET_ANIME_LIST } from "../../../queries/animeQueries";
 
-const AnimeCards = ({ search, type, perPage, sortBy, status, findMore }) => {
+const AnimeCards = ({
+    search,
+    type,
+    genres,
+    showTypes,
+    years,
+    seasons,
+    perPage,
+    sortBy,
+    status,
+    findMore,
+}) => {
     const [getNew, { loading, error, data, fetchMore }] =
         useLazyQuery(GET_ANIME_LIST);
     // const { loading, error, data, fetchMore } = useQuery(GET_ANIME_LIST, {
