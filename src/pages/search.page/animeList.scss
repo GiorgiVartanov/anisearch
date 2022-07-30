@@ -3,6 +3,7 @@
 .select-holder {
     text-align: center;
     white-space: nowrap;
+    margin-top: 2.5rem;
 
     .type-select {
         border: none;
@@ -13,11 +14,22 @@
         font-weight: bold;
         padding: 0 0.25rem;
         margin: 0.5rem;
+        box-shadow: 0 0 5px 1px $shadow-color;
+
+        &:hover {
+            box-shadow: 0 0 5px 2px $shadow-color;
+        }
+        &:active {
+            box-shadow: 0 0 5px 2px $shadow-color;
+        }
+        &:focus {
+            box-shadow: 0 0 5px 4px $shadow-color;
+        }
     }
 }
 
 .search-bar-holder {
-    margin: 2.5rem 0;
+    margin: 2rem 0 2.5rem;
     justify-content: center;
     display: flex;
     flex-direction: row;

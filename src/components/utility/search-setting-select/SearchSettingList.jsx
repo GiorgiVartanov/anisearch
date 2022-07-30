@@ -15,18 +15,21 @@ const SearchSettingList = ({ name, options, changeSelected }) => {
     }, [selected]);
 
     return (
-        <select
-            className="search-select"
-            name={name}
-            id={name}
-            onChange={handleSelect}
-        >
-            {options.map((option) => (
-                <option key={option} value={option}>
-                    {option}
-                </option>
-            ))}
-        </select>
+        <div className="search-select-holder">
+            <h5 className="search-select-name">{name}</h5>
+            <select
+                className="search-select"
+                name={name}
+                id={name}
+                onChange={handleSelect}
+            >
+                {options.map((option) => (
+                    <option key={option} value={option}>
+                        {option}
+                    </option>
+                ))}
+            </select>
+        </div>
     );
 };
 

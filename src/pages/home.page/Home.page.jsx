@@ -1,8 +1,10 @@
+import "./home.scss";
+
 import ScrollSection from "../../components/body/scroll-section/ScrollSection";
 
 const Home = () => {
     return (
-        <>
+        <main className="home-page">
             <section>
                 <ScrollSection
                     name={"Future Shows"}
@@ -24,7 +26,7 @@ const Home = () => {
                     sortBy={"POPULARITY_DESC"}
                 />
             </section>
-        </>
+        </main>
     );
 };
 

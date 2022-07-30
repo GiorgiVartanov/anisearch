@@ -1,10 +1,30 @@
 @import "../../../scss-variables.scss";
 
-.search-select {
-    border: none;
-    outline: none;
-    background-color: white;
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 0 5px 2px $shadow-color;
+.search-select-holder {
+    display: flex;
+    flex-direction: column;
+    .search-select-name {
+        text-align: left;
+        color: $main-dimmed;
+        opacity: 0.5;
+    }
+    .search-select {
+        border: none;
+        outline: none;
+        background-color: white;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 5px 2px $shadow-color;
+        transition: 0.2s ease-in;
+
+        &:hover {
+            box-shadow: 0 0 5px 2px $shadow-color;
+        }
+        &:active {
+            box-shadow: 0 0 5px 2px $shadow-color;
+        }
+        &:focus {
+            box-shadow: 0 0 5px 4px $shadow-color;
+        }
+    }
 }
