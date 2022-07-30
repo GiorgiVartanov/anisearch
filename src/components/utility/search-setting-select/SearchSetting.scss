@@ -1,66 +1,10 @@
 @import "../../../scss-variables.scss";
 
-.select-search-body {
-    position: relative;
-    width: fit-content;
-    .search-select {
-        display: block;
-        outline: none;
-        border: none;
-        // border: 2px solid $main-dark;
-        text-align: center;
-        padding: 0.25rem 0.5rem;
-        box-shadow: 0 0 5px 1px $shadow-color;
-        border-radius: 0.5rem;
-        transition: 0.2s ease-in;
-        width: 5rem;
-        background-color: white;
-        margin: auto;
-    }
-    &:focus-within .select-options {
-        display: flex;
-    }
-    &:focus-within .block-all-panel {
-        display: block;
-    }
-    .select-options {
-        margin-top: 0.5rem;
-        padding: 0.5rem;
-        display: none;
-        background-color: red;
-        // height: 300px;
-        text-align: center;
-        box-shadow: 0 0 5px 1px $shadow-color;
-        border-radius: 0.5rem;
-        transition: 0.2s ease-in;
-        background-color: white;
-        position: absolute;
-        width: 10rem;
-        left: 50%;
-        transform: translateX(-50%);
-        flex-direction: column;
-        max-height: 300px;
-        overflow-y: scroll;
-
-        padding-right: 0;
-        scrollbar-color: $main-dark transparent;
-        scrollbar-width: thin;
-
-        .search-select-option {
-            padding: 0.5rem;
-        }
-
-        .selected-option {
-            background-color: $main-dark;
-            color: $main-light;
-        }
-    }
-    .block-all-panel {
-        display: none;
-        height: 400px;
-        width: 20rem;
-        position: absolute;
-        top: 2rem;
-        right: -7rem;
-    }
+.search-select {
+    border: none;
+    outline: none;
+    background-color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 5px 2px $shadow-color;
 }

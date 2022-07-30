@@ -15,7 +15,12 @@ const SearchSettingList = ({ name, options, changeSelected }) => {
     }, [selected]);
 
     return (
-        <select name={name} id={name} onChange={handleSelect}>
+        <select
+            className="search-select"
+            name={name}
+            id={name}
+            onChange={handleSelect}
+        >
             {options.map((option) => (
                 <option key={option} value={option}>
                     {option}

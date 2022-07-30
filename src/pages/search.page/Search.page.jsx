@@ -7,6 +7,17 @@ import { useState, useEffect } from "react";
 
 const Search = () => {
     const selectOptions = ["ANIME", "MANGA"];
+    const animeTypes = [
+        "Any",
+        "TV",
+        "TV_SHORT",
+        "MOVIE",
+        "SPECIAL",
+        "OVA",
+        "ONA",
+        "MUSIC",
+    ];
+    const mangaTypes = ["Any", "MANGA", "NOVEL", "ONE_SHOT"];
 
     const [searchedValue, setSearchedValue] = useState("");
     const [searchedType, setSearchedType] = useState("ANIME");
@@ -83,21 +94,33 @@ const Search = () => {
             <div className="search-setting-list">
                 <SearchSettingList
                     name={"Genres"}
-                    options={["Any", "Action", "Adventure", "Comedy", "Drama"]}
+                    options={[
+                        "Any",
+                        "Action",
+                        "Adventure",
+                        "Comedy",
+                        "Drama",
+                        "Ecchi",
+                        "Fantasy",
+                        "Horror",
+                        "Mahou Shoujo",
+                        "Mecha",
+                        "Music",
+                        "Mystery",
+                        "Psychological",
+                        "Romance",
+                        "Sci-Fi",
+                        "Slice of Life",
+                        "Sports",
+                        "Supernatural",
+                        "Thriller",
+                    ]}
                     changeSelected={addSearchedGenre}
                     beArray={true}
                 />
                 <SearchSettingList
                     name={"Type"}
-                    options={[
-                        "Any",
-                        "TV",
-                        "TV Short",
-                        "Movie",
-                        "Special",
-                        "OVA",
-                        "ONA",
-                    ]}
+                    options={animeTypes}
                     changeSelected={addSearchedTypes}
                     beArray={true}
                 />
