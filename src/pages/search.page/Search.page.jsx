@@ -10,33 +10,37 @@ const Search = () => {
 
     const [searchedValue, setSearchedValue] = useState("");
     const [searchedType, setSearchedType] = useState("ANIME");
-    const [animeToSearch, setAnimeToSearch] = useState(null);
+    const [animeToSearch, setAnimeToSearch] = useState();
 
-    const [selectedGenres, setSelectedGenres] = useState([]);
-    const [selectedTypes, setSelectedTypes] = useState([]);
-    const [selectedYears, setSelectedYearsArr] = useState([]);
-    const [selectedSeasons, setSelectedSeasons] = useState([]);
+    const [selectedGenre, setSelectedGenre] = useState();
+    const [selectedType, setSelectedType] = useState();
+    const [selectedYear, setSelectedYear] = useState();
+    const [selectedSeason, setSelectedSeason] = useState();
 
     const years = ["Any"];
     const currentYear = new Date().getFullYear();
 
     for (let i = currentYear; i >= 1940; i--) {
-        years.push(i.toString());
+        years.push(i);
     }
 
     // we will pass this 4 functions to <SearchSettingList /> components, so they will be able to change state of <Search /> component
     const addSearchedGenre = (value) => {
-        setSelectedGenres(value);
+        setSelectedGenre(value === "Any" ? undefined : value);
     };
     const addSearchedTypes = (value) => {
-        setSelectedTypes(value);
+        setSelectedType(value === "Any" ? undefined : value);
     };
     const addSearchedYears = (value) => {
-        setSelectedYearsArr(value);
+        setSelectedYear(value === "Any" ? undefined : value);
     };
     const addSearchedSeasons = (value) => {
-        setSelectedSeasons(value);
+        setSelectedSeason(value === "Any" ? undefined : value);
     };
+
+    // useEffect(() => {
+    //     console.log(selectedGenre);
+    // }, [selectedGenre]);
 
     const handleSearch = (e) => {
         // MAKE IT SO IT NAVIGATES TO /:search
@@ -51,7 +55,8 @@ const Search = () => {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            setAnimeToSearch(searchedValue);
+            if (searchedValue === "") setAnimeToSearch(undefined);
+            else setAnimeToSearch(searchedValue);
         }, 1500);
 
         return () => clearTimeout(timer);
@@ -77,15 +82,16 @@ const Search = () => {
             </div>
             <div className="search-setting-list">
                 <SearchSettingList
-                    name={"genres"}
+                    name={"Genres"}
                     options={["Any", "Action", "Adventure", "Comedy", "Drama"]}
                     changeSelected={addSearchedGenre}
+                    beArray={true}
                 />
                 <SearchSettingList
-                    name={"showType"}
+                    name={"Type"}
                     options={[
                         "Any",
-                        "TV Show",
+                        "TV",
                         "TV Short",
                         "Movie",
                         "Special",
@@ -93,25 +99,28 @@ const Search = () => {
                         "ONA",
                     ]}
                     changeSelected={addSearchedTypes}
+                    beArray={true}
                 />
                 <SearchSettingList
-                    name={"year"}
+                    name={"Year"}
                     options={years}
                     changeSelected={addSearchedYears}
+                    beArray={false}
                 />
                 <SearchSettingList
-                    name={"season"}
-                    options={["Any", "Winter", "Spring", "Summer", "Fall"]}
+                    name={"Season"}
+                    options={["Any", "WINTER", "SPRING", "SUMMER", "FALL"]}
                     changeSelected={addSearchedSeasons}
+                    beArray={false}
                 />
             </div>
             <AnimeCards
                 search={animeToSearch}
                 type={searchedType}
-                genres={selectedGenres}
-                showTypes={selectedTypes}
-                years={selectedYears}
-                seasons={selectedSeasons}
+                genre={selectedGenre}
+                showType={selectedType}
+                year={selectedYear}
+                season={selectedSeason}
                 perPage={30}
                 findMore={true}
             />

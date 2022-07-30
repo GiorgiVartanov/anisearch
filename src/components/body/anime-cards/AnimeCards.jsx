@@ -12,10 +12,10 @@ import { GET_ANIME_LIST } from "../../../queries/animeQueries";
 const AnimeCards = ({
     search,
     type,
-    genres,
-    showTypes,
-    years,
-    seasons,
+    genre,
+    showType,
+    year,
+    season,
     perPage,
     sortBy,
     status,
@@ -23,9 +23,6 @@ const AnimeCards = ({
 }) => {
     const [getNew, { loading, error, data, fetchMore }] =
         useLazyQuery(GET_ANIME_LIST);
-    // const { loading, error, data, fetchMore } = useQuery(GET_ANIME_LIST, {
-    //     variables: { page: 1, perPage: 10, search: search },
-    // });
 
     let page = 1; // I am not sure if it is right to use something like this in react
 
@@ -59,57 +56,29 @@ const AnimeCards = ({
     );
 
     useEffect(() => {
+        // I am sure there is better way to do this
         client.resetStore();
-        if (search === "")
-            getNew({
-                variables: {
-                    page: 1,
-                    perPage: perPage,
-                    type: type,
-                    sort: sortBy,
-                },
-                updateQuery: (
-                    previousResult,
-                    { fetchMoreResult, queryVariables }
-                ) => {
-                    page = 1;
-                    return fetchMoreResult;
-                },
-            });
-        else {
-            if (findMore) {
-                getNew({
-                    variables: {
-                        page: 1,
-                        perPage: perPage,
-                        type: type,
-                        search: search,
-                        sort: sortBy,
-                        status: status,
-                    },
-                    updateQuery: (
-                        previousResult,
-                        { fetchMoreResult, queryVariables }
-                    ) => {
-                        page = 1;
-                        return fetchMoreResult;
-                    },
-                });
-            } else {
-                getNew({
-                    variables: {
-                        page: 1,
-                        perPage: perPage,
-                        type: type,
-                        search: search,
-                        sort: sortBy,
-                        status: status,
-                    },
-                    fetchPolicy: "no-cache",
-                });
-            }
-        }
-    }, [search, type, perPage]);
+
+        getNew({
+            variables: {
+                page: 1,
+                perPage: perPage,
+                type: type,
+                sort: sortBy,
+                season: season, // if nothing in this field was passed it will stay undefined, so it won't have any impact on query
+                seasonYear: year,
+                genre: genre,
+                search: search,
+            },
+            updateQuery: (
+                previousResult,
+                { fetchMoreResult, queryVariables }
+            ) => {
+                page = 1;
+                return fetchMoreResult;
+            },
+        });
+    }, [search, type, perPage, genre, showType, year, season]);
 
     if (loading) return <p className="warning">Loading...</p>;
     if (error) return <p className="warning">Something Went Wrong</p>;

@@ -10,9 +10,9 @@ const GET_ANIME_LIST = gql`
         $sort: [MediaSort]
         $status: MediaStatus
         $season: MediaSeason
-        $genre_in: [String]
+        $genre: String
         $seasonYear: Int
-        $format_in: [MediaFormat]
+        $format: MediaFormat
     ) {
         Page(page: $page, perPage: $perPage) {
             pageInfo {
@@ -28,6 +28,10 @@ const GET_ANIME_LIST = gql`
                 type: $type
                 sort: $sort
                 status: $status
+                season: $season
+                genre: $genre
+                seasonYear: $seasonYear
+                format: $format
             ) {
                 id
                 title {
