@@ -2,6 +2,7 @@ import Home from "./pages/home.page/Home.page";
 import About from "./pages/about.page/About.page";
 import AnimeInfo from "./pages/anime-info.page/AnimeInfo.page";
 import NotFound from "./pages/not-found.page/NotFound.page";
+import CharacterInfo from "./pages/character-info.page/CharacterInfo.page";
 
 import Search from "./pages/search.page/Search.page";
 
@@ -26,10 +27,12 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/about" element={<About />} />
-                    <Route
+                    {/* <Route
                         path="/animeinfo/:type/:id"
                         element={<AnimeInfo />}
-                    />
+                    /> */}
+                    <Route path="/:type/:id" element={<AnimeInfo />} />
+                    <Route path="/character/:id" element={<CharacterInfo />} />
                     <Route path="/search" element={<Search />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>

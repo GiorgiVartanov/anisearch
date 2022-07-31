@@ -3,36 +3,35 @@ import "./animeList.scss";
 import AnimeCards from "../../components/body/anime-cards/AnimeCards";
 import SearchSettingList from "../../components/utility/search-setting-select/SearchSettingList";
 
+import {
+    typeOfMedia,
+    animeTypes,
+    mangaTypes,
+    animeSortSettings,
+    mangaSortSettings,
+    seasons,
+    genres,
+} from "../../searchSettings";
+
 import { useState, useEffect } from "react";
 
 const Search = () => {
-    const selectOptions = ["ANIME", "MANGA"];
-    const animeTypes = [
-        "Any",
-        "TV",
-        "TV_SHORT",
-        "MOVIE",
-        "SPECIAL",
-        "OVA",
-        "ONA",
-        "MUSIC",
-    ];
-    const mangaTypes = ["Any", "MANGA", "NOVEL", "ONE_SHOT"];
-
     const [searchedValue, setSearchedValue] = useState("");
-    const [searchedType, setSearchedType] = useState("ANIME");
+    const [searchedType, setSearchedType] = useState({ value: "ANIME" });
     const [animeToSearch, setAnimeToSearch] = useState();
 
     const [selectedGenre, setSelectedGenre] = useState();
     const [selectedType, setSelectedType] = useState();
     const [selectedYear, setSelectedYear] = useState();
     const [selectedSeason, setSelectedSeason] = useState();
+    const [sortBy, setSortBy] = useState();
 
-    const years = ["Any"];
+    const years = [{ value: undefined, name: "Any" }];
     const currentYear = new Date().getFullYear();
 
     for (let i = currentYear; i >= 1940; i--) {
-        years.push(i);
+        // change later
+        years.push({ value: i, name: i });
     }
 
     // we will pass this 4 functions to <SearchSettingList /> components, so they will be able to change state of <Search /> component
@@ -48,6 +47,9 @@ const Search = () => {
     const addSearchedSeasons = (value) => {
         setSelectedSeason(value === "Any" ? undefined : value);
     };
+    const addSort = (value) => {
+        setSortBy(value === "Any" ? undefined : value);
+    };
 
     // useEffect(() => {
     //     console.log(selectedGenre);
@@ -61,7 +63,7 @@ const Search = () => {
     };
 
     const handleTypeSelect = (e) => {
-        setSearchedType(selectOptions[e.target.selectedIndex]);
+        setSearchedType({ value: typeOfMedia[e.target.selectedIndex] });
     };
 
     useEffect(() => {
@@ -78,8 +80,8 @@ const Search = () => {
             <h3 className="select-holder">
                 SEARCH FOR
                 <select onChange={handleTypeSelect} className="type-select">
-                    <option value="ANIME">ANIME</option>
-                    <option value="MANGA">MANGA</option>
+                    <option value="ANIME">anime</option>
+                    <option value="MANGA">manga</option>
                 </select>
             </h3>
             <div className="search-bar-holder">
@@ -94,47 +96,28 @@ const Search = () => {
             <div className="search-setting-list">
                 <SearchSettingList
                     name={"Genres"}
-                    options={[
-                        "Any",
-                        "Action",
-                        "Adventure",
-                        "Comedy",
-                        "Drama",
-                        "Ecchi",
-                        "Fantasy",
-                        "Horror",
-                        "Mahou Shoujo",
-                        "Mecha",
-                        "Music",
-                        "Mystery",
-                        "Psychological",
-                        "Romance",
-                        "Sci-Fi",
-                        "Slice of Life",
-                        "Sports",
-                        "Supernatural",
-                        "Thriller",
-                    ]}
+                    options={genres}
                     changeSelected={addSearchedGenre}
-                    beArray={true}
                 />
                 <SearchSettingList
                     name={"Type"}
                     options={animeTypes}
                     changeSelected={addSearchedTypes}
-                    beArray={true}
                 />
                 <SearchSettingList
                     name={"Year"}
                     options={years}
                     changeSelected={addSearchedYears}
-                    beArray={false}
                 />
                 <SearchSettingList
                     name={"Season"}
-                    options={["Any", "WINTER", "SPRING", "SUMMER", "FALL"]}
+                    options={seasons}
                     changeSelected={addSearchedSeasons}
-                    beArray={false}
+                />
+                <SearchSettingList
+                    name={"Sort By"}
+                    options={animeSortSettings}
+                    changeSelected={addSort}
                 />
             </div>
             <AnimeCards
@@ -144,6 +127,7 @@ const Search = () => {
                 showType={selectedType}
                 year={selectedYear}
                 season={selectedSeason}
+                sortBy={sortBy}
                 perPage={30}
                 findMore={true}
             />

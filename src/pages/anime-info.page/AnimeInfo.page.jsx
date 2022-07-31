@@ -14,7 +14,7 @@ const AnimeInfo = () => {
     const { type, id } = useParams();
 
     const { loading, error, data } = useQuery(GET_ANIME_PAGE, {
-        variables: { id: id, type: type },
+        variables: { id: id, type: type.toUpperCase() },
     });
 
     if (loading) return <p>Loading...</p>;

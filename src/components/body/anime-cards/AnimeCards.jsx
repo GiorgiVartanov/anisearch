@@ -65,12 +65,13 @@ const AnimeCards = ({
                     isAdult: false,
                     page: 1,
                     perPage: perPage,
-                    type: type,
+                    type: type.value,
                     sort: sortBy,
                     season: season, // if nothing in this field was passed it will stay undefined, so it won't have any impact on query
                     seasonYear: year,
                     genre: genre,
                     search: search,
+                    format: showType,
                 },
                 updateQuery: (
                     previousResult,
@@ -86,14 +87,14 @@ const AnimeCards = ({
                     isAdult: false,
                     page: 1,
                     perPage: perPage,
-                    type: type,
+                    type: type.value,
                     sort: sortBy,
                     status: status,
                 },
                 fetchPolicy: "no-cache",
             });
         }
-    }, [search, type, perPage, genre, showType, year, season]);
+    }, [search, type, perPage, genre, showType, year, season, sortBy]);
 
     if (loading) return <p className="warning">Loading...</p>;
     if (error) return <p className="warning">Something Went Wrong</p>;
@@ -113,7 +114,7 @@ const AnimeCards = ({
                                 id={show.id}
                                 title={show.title.romaji}
                                 coverImage={show.coverImage.large}
-                                type={type}
+                                type={type.value.toLowerCase()}
                             />
                         );
                     } else {
@@ -123,7 +124,7 @@ const AnimeCards = ({
                                 id={show.id}
                                 title={show.title.romaji}
                                 coverImage={show.coverImage.large}
-                                type={type}
+                                type={type.value.toLowerCase()}
                             />
                         );
                     }

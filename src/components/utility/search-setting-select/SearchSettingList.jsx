@@ -10,6 +10,8 @@ const SearchSettingList = ({ name, options, changeSelected }) => {
         setSelected(e.target.children[e.target.selectedIndex].value);
     };
 
+    // console.log(options);
+
     useEffect(() => {
         changeSelected(selected);
     }, [selected]);
@@ -24,8 +26,8 @@ const SearchSettingList = ({ name, options, changeSelected }) => {
                 onChange={handleSelect}
             >
                 {options.map((option) => (
-                    <option key={option} value={option}>
-                        {option}
+                    <option key={option.name} value={option.value}>
+                        {option.name}
                     </option>
                 ))}
             </select>

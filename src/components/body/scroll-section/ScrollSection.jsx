@@ -16,7 +16,7 @@ const ScrollSection = ({ name, sortBy, status }) => {
 
             <div className="show-list">
                 <AnimeCards
-                    type="ANIME"
+                    type={{ value: "ANIME" }}
                     perPage={5}
                     sortBy={sortBy}
                     status={status}
