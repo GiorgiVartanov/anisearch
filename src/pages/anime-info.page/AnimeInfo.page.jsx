@@ -3,6 +3,7 @@ import "./animeInfo.scss";
 import Genre from "../../components/utility/genre.component/Genre";
 import SmallCard from "../../components/body/small-card/SmallCard";
 import AnimeCard from "../../components/body/anime-card/AnimeCard";
+import CharacterCard from "../../components/body/character-card/CharacterCard";
 
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
@@ -23,7 +24,11 @@ const AnimeInfo = () => {
         <>
             <div
                 style={{
-                    backgroundImage: `url(${data.Media.bannerImage})`,
+                    backgroundImage: `url(${
+                        data.Media.bannerImage
+                            ? data.Media.bannerImage
+                            : data.Media.coverImage.extraLarge
+                    })`,
                 }}
                 className="hero-image"
             >
@@ -34,6 +39,10 @@ const AnimeInfo = () => {
             </div>
 
             <div className="info-page">
+                <img
+                    className="cover-image"
+                    src={data.Media.coverImage.extraLarge}
+                />
                 <div className="small-info">
                     <h2 className="title">
                         {data.Media.title.romaji}
@@ -106,7 +115,7 @@ const AnimeInfo = () => {
                     <p>{data.Media.description}</p>
                 </div>
                 <div className="relations">
-                    <h3>relations</h3>
+                    <h3>Shows</h3>
                     <div className="relation-list">
                         {data.Media.relations.edges.map((relation) => (
                             <AnimeCard
@@ -115,6 +124,17 @@ const AnimeInfo = () => {
                                 title={relation.node.title.romaji}
                                 coverImage={relation.node.coverImage.large}
                                 type={relation.node.type}
+                            />
+                        ))}
+                    </div>
+                    <h3>Characters</h3>
+                    <div className="relation-list">
+                        {data.Media.characters.nodes.map((character) => (
+                            <CharacterCard
+                                key={character.id}
+                                id={character.id}
+                                name={character.name.full}
+                                image={character.image.large}
                             />
                         ))}
                     </div>

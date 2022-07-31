@@ -137,12 +137,28 @@ const GET_ANIME_PAGE = gql`
             duration
             source
             coverImage {
-                large
+                extraLarge
             }
             bannerImage
             genres
             synonyms
             averageScore
+            trailer {
+                id
+                site
+                thumbnail
+            }
+            characters(sort: [ROLE]) {
+                nodes {
+                    id
+                    name {
+                        full
+                    }
+                    image {
+                        large
+                    }
+                }
+            }
             relations {
                 edges {
                     id

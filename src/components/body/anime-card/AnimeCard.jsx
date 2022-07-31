@@ -9,7 +9,7 @@ const AnimeCard = ({ myref, id, title, coverImage, type }) => {
                 <img className="card-image" src={coverImage} alt={title}></img>
 
                 <div className="card-body">
-                    <h3 className="card-title">{title} </h3>
+                    <p className="card-title">{title} </p>
                 </div>
             </div>
         </Link>

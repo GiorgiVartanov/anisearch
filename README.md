@@ -26,10 +26,8 @@
 
 <!--![screenshot](https://i.ibb.co/xYN94kG/image.png)-->
 
-<a href="https://animsearcher.netlify.app/">
-    <picture>
-        <source srcset="https://screenshot-proxy.netlify.app/f_avif,w_336/https://d33wubrfki0l68.cloudfront.net/62e55173d323e50008ceeb1a/screenshot_2022-07-30-15-43-18-0000.png">
-    </picture>
+<a align="center" href="https://animsearcher.netlify.app/">
+    <img src="https://screenshot-proxy.netlify.app/f_avif,w_336/https://d33wubrfki0l68.cloudfront.net/62e55173d323e50008ceeb1a/screenshot_2022-07-30-15-43-18-0000.png">
 </a>
 
 This is a website where you can search for anime or manga,
