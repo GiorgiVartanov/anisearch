@@ -3,12 +3,8 @@
 .card {
     display: flex;
     flex-direction: column;
-    // background-color: $main-dark;
-    // color: $main-light;
     max-width: 200px;
     cursor: pointer;
-    // border-radius: 0.75rem 0.75rem 0.5rem 0.5rem;
-    // box-shadow: 0 0 10px 3px $shadow-color;
     transition: 0.1s ease-in;
 
     .card-image {

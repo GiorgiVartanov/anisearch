@@ -90,19 +90,10 @@ const AnimeInfo = () => {
                                     {data.Media.endDate.day}
                                 </span>
                             ) : (
-                                "NOW"
+                                "DATE UNKNOWN"
                             )}
                         </span>
                     </p>
-
-                    {/* <p>
-                        start date : {data.Media.startDate.year}/
-                        {data.Media.startDate.month}/{data.Media.startDate.day}
-                    </p>
-                    <p>
-                        end date : {data.Media.endDate.year}/
-                        {data.Media.endDate.month}/{data.Media.endDate.day}
-                    </p> */}
                     <div className="genre-holder">
                         {data.Media.genres.map((genre) => (
                             <Genre key={genre} name={genre} />
@@ -115,29 +106,33 @@ const AnimeInfo = () => {
                     <p>{data.Media.description}</p>
                 </div>
                 <div className="relations">
-                    <h3>Shows</h3>
-                    <div className="relation-list">
-                        {data.Media.relations.edges.map((relation) => (
-                            <AnimeCard
-                                key={relation.node.id}
-                                id={relation.node.id}
-                                title={relation.node.title.romaji}
-                                coverImage={relation.node.coverImage.large}
-                                type={relation.node.type}
-                            />
-                        ))}
-                    </div>
-                    <h3>Characters</h3>
-                    <div className="relation-list">
-                        {data.Media.characters.nodes.map((character) => (
-                            <CharacterCard
-                                key={character.id}
-                                id={character.id}
-                                name={character.name.full}
-                                image={character.image.large}
-                            />
-                        ))}
-                    </div>
+                    <section className="anime-info-section">
+                        <h3>Shows</h3>
+                        <div className="relation-list">
+                            {data.Media.relations.edges.map((relation) => (
+                                <AnimeCard
+                                    key={relation.node.id}
+                                    id={relation.node.id}
+                                    title={relation.node.title.romaji}
+                                    coverImage={relation.node.coverImage.large}
+                                    type={relation.node.type}
+                                />
+                            ))}
+                        </div>
+                    </section>
+                    <section className="anime-info-section">
+                        <h3>Characters</h3>
+                        <div className="relation-list">
+                            {data.Media.characters.nodes.map((character) => (
+                                <CharacterCard
+                                    key={character.id}
+                                    id={character.id}
+                                    name={character.name.full}
+                                    image={character.image.large}
+                                />
+                            ))}
+                        </div>
+                    </section>
                 </div>
             </div>
         </>

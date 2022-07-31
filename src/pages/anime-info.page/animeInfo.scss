@@ -28,6 +28,10 @@
             color: $main-dimmed;
         }
     }
+    .anime-info-section {
+        border-top: 1px solid $main-dark;
+        margin-top: 2.5rem;
+    }
 }
 
 .hero-image {
@@ -64,10 +68,12 @@
 }
 
 .relations {
-    & > h3 {
-        margin: 2rem auto 1rem;
-        // text-align: center;
-        border-bottom: 1px solid $main-dark;
+    .anime-info-section {
+        & > h3 {
+            margin: 0 auto 1rem;
+            // text-align: center;
+            // border-bottom: 1px solid $main-dark;
+        }
     }
 }
 .relation-list {
