@@ -7,6 +7,7 @@ const GET_ANIME_LIST = gql`
         $perPage: Int
         $search: String
         $type: MediaType
+        $isAdult: Boolean
         $sort: [MediaSort]
         $status: MediaStatus
         $season: MediaSeason
@@ -26,6 +27,7 @@ const GET_ANIME_LIST = gql`
                 id: $id
                 search: $search
                 type: $type
+                isAdult: $isAdult
                 sort: $sort
                 status: $status
                 season: $season
@@ -138,6 +140,7 @@ const GET_ANIME_PAGE = gql`
             source
             coverImage {
                 extraLarge
+                color
             }
             bannerImage
             genres

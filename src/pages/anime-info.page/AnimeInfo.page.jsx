@@ -1,9 +1,9 @@
 import "./animeInfo.scss";
 
 import Genre from "../../components/utility/genre.component/Genre";
-import SmallCard from "../../components/body/small-card/SmallCard";
 import AnimeCard from "../../components/body/anime-card/AnimeCard";
 import CharacterCard from "../../components/body/character-card/CharacterCard";
+import Loading from "../../components/utility/loading.component/Loading";
 
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
@@ -17,7 +17,7 @@ const AnimeInfo = () => {
         variables: { id: id, type: type.toUpperCase() },
     });
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <Loading />;
     if (error) return <p>Something Went Wrong</p>;
 
     return (
@@ -29,6 +29,7 @@ const AnimeInfo = () => {
                             ? data.Media.bannerImage
                             : data.Media.coverImage.extraLarge
                     })`,
+                    // backgroundColor: data.Media.coverImage.color,
                 }}
                 className="hero-image"
             >

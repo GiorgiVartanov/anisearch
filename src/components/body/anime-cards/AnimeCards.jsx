@@ -1,6 +1,7 @@
 import "./animeCards.scss";
 
 import AnimeCard from "../anime-card/AnimeCard.jsx";
+import Loading from "../../utility/loading.component/Loading";
 
 import { useLazyQuery } from "@apollo/client";
 import { useEffect, useRef, useCallback } from "react";
@@ -96,9 +97,9 @@ const AnimeCards = ({
         }
     }, [search, type, perPage, genre, showType, year, season, sortBy]);
 
-    if (loading) return <p className="warning">Loading...</p>;
-    if (error) return <p className="warning">Something Went Wrong</p>;
-    if (!data) return <p className="warning">No Data</p>;
+    if (loading) return <Loading />;
+    if (error) return <p>Something Went Wrong</p>;
+    if (!data) return <p>No Data</p>;
     if (data.Page.media.length < 1)
         return <p className="warning">No Results</p>;
 
@@ -114,7 +115,7 @@ const AnimeCards = ({
                                 id={show.id}
                                 title={show.title.romaji}
                                 coverImage={show.coverImage.large}
-                                type={type.value.toLowerCase()}
+                                type={type.value}
                             />
                         );
                     } else {
@@ -124,7 +125,7 @@ const AnimeCards = ({
                                 id={show.id}
                                 title={show.title.romaji}
                                 coverImage={show.coverImage.large}
-                                type={type.value.toLowerCase()}
+                                type={type.value}
                             />
                         );
                     }

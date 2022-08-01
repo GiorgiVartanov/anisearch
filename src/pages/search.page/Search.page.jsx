@@ -2,6 +2,7 @@ import "./animeList.scss";
 
 import AnimeCards from "../../components/body/anime-cards/AnimeCards";
 import SearchSettingList from "../../components/utility/search-setting-select/SearchSettingList";
+import Loading from "../../components/utility/loading.component/Loading";
 
 import {
     typeOfMedia,
@@ -63,7 +64,7 @@ const Search = () => {
     };
 
     const handleTypeSelect = (e) => {
-        setSearchedType({ value: typeOfMedia[e.target.selectedIndex] });
+        setSearchedType(typeOfMedia[e.target.selectedIndex]);
     };
 
     useEffect(() => {
@@ -128,7 +129,7 @@ const Search = () => {
                 year={selectedYear}
                 season={selectedSeason}
                 sortBy={sortBy}
-                perPage={30}
+                perPage={20}
                 findMore={true}
             />
             ;

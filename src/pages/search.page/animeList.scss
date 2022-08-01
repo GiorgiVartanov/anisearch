@@ -62,6 +62,7 @@
         box-shadow: 0 0 5px 1px $shadow-color;
         border-radius: 0.5rem;
         background-color: white;
+        display: none;
 
         &:hover,
         &:active {
@@ -81,4 +82,17 @@
     justify-content: center;
     width: 60%;
     margin: 0 auto 2rem;
+}
+
+@media screen and (max-width: 800px) {
+    .search-setting-list {
+        flex-direction: column;
+        width: 50%;
+    }
+}
+@media screen and (max-width: 500px) {
+    .search-setting-list {
+        flex-direction: column;
+        width: 90%;
+    }
 }
