@@ -1,4 +1,4 @@
-<h1 align="center">AnimeSearcher</h1>
+<h1 align="center">AniSearcher</h1>
 
 <div align="center">
    Website where you can search for anime/manga
@@ -6,7 +6,7 @@
 
 <div align="center">
   <h3>
-    <a href="https://animsearcher.netlify.app/">
+    <a href="https://anisearcher.netlify.app/">
       Demo
     </a>
     <span> | </span>
@@ -26,7 +26,7 @@
 
 <!--![screenshot](https://i.ibb.co/xYN94kG/image.png)-->
 
-<a align="center" href="https://animsearcher.netlify.app/">
+<a align="center" href="https://anisearcher.netlify.app/">
     <img src="https://screenshot-proxy.netlify.app/f_avif,w_336/https://d33wubrfki0l68.cloudfront.net/62e55173d323e50008ceeb1a/screenshot_2022-07-30-15-43-18-0000.png">
 </a>
 
@@ -34,7 +34,7 @@ This is a website where you can search for anime or manga,
 check what animes are popular in current season and which
 ones would come oun in the next season
 
--   you can see demo on https://pokeact.netlify.app/
+-   you can see demo on https://anisearcher.netlify.app/
 
 ## Tools
 

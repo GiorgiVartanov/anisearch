@@ -1,0 +1,11 @@
+@import "../../../scss-variables.scss";
+.episode-card {
+    color: $main-dark;
+    border-bottom: 1px solid $main-dark;
+    padding: 0.5rem;
+
+    &:hover {
+        color: $main-dimmed;
+        border-bottom: 1px solid $main-dimmed;
+    }
+}

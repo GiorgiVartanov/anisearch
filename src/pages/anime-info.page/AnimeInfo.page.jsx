@@ -4,6 +4,7 @@ import Genre from "../../components/utility/genre.component/Genre";
 import AnimeCard from "../../components/body/anime-card/AnimeCard";
 import CharacterCard from "../../components/body/character-card/CharacterCard";
 import Loading from "../../components/utility/loading.component/Loading";
+import EpisodeCard from "../../components/body/episode-card/EpisodeCard";
 
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
@@ -107,6 +108,22 @@ const AnimeInfo = () => {
                     <p>{data.Media.description}</p>
                 </div>
                 <div className="relations">
+                    {type === "ANIME" && (
+                        <section className="anime-info-section">
+                            <h3>Episodes</h3>
+                            <div className="anime-episode-section">
+                                {data.Media.streamingEpisodes.map((item) => {
+                                    return (
+                                        <EpisodeCard
+                                            key={item.title}
+                                            title={item.title}
+                                            url={item.url}
+                                        />
+                                    );
+                                })}
+                            </div>
+                        </section>
+                    )}
                     <section className="anime-info-section">
                         <h3>Shows</h3>
                         <div className="relation-list">

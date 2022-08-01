@@ -151,6 +151,11 @@ const GET_ANIME_PAGE = gql`
                 site
                 thumbnail
             }
+            streamingEpisodes {
+                title
+                url
+                site
+            }
             characters(sort: [ROLE]) {
                 nodes {
                     id
@@ -182,10 +187,44 @@ const GET_ANIME_PAGE = gql`
     }
 `;
 
+const GET_CHARACTER_PAGE = gql`
+    query getCharacterPage($id: Int) {
+        Character(id: $id) {
+            id
+            image {
+                large
+            }
+            name {
+                full
+            }
+            description
+            media {
+                nodes {
+                    id
+                    type
+                    title {
+                        romaji
+                    }
+                    coverImage {
+                        large
+                    }
+                }
+            }
+            age
+            dateOfBirth {
+                year
+                month
+                day
+            }
+        }
+    }
+`;
+
 export {
+    GET_CHARACTER_PAGE,
     GET_ANIME_LIST,
-    GET_ANIME_MEDIA_TREND,
+    // GET_ANIME_MEDIA_TREND,
     GET_SEARCHED_ANIME,
-    GET_ANIME_CARD,
+    // GET_ANIME_CARD,
     GET_ANIME_PAGE,
 };

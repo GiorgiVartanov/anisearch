@@ -84,6 +84,11 @@
     gap: 1.5rem;
     grid-template-columns: repeat(3, 1fr);
 }
+.anime-episode-section {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+}
 
 @media screen and (max-width: 1200px) {
     .relation-list {
