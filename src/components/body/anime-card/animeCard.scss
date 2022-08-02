@@ -8,11 +8,13 @@
     transition: 0.1s ease-in;
 
     .card-image {
-        border-radius: 0.5rem;
-        // border-radius: 0.5rem 0.5rem 0 0;
+        width: 200px;
+        height: 300px;
         box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
         height: 300px;
         transition: 0.1s ease-in;
+        background-size: cover;
+        background-position: center;
     }
     .card-title {
         color: $main-dark;

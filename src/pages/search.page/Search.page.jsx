@@ -1,4 +1,4 @@
-import "./animeList.scss";
+import "./search.scss";
 
 import AnimeCards from "../../components/body/anime-cards/AnimeCards";
 import SearchSettingList from "../../components/utility/search-setting-select/SearchSettingList";

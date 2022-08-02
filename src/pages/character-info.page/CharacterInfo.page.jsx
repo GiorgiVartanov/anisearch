@@ -33,10 +33,11 @@ const CharacterInfo = () => {
     return (
         <div className="centered">
             <img
+                className="info-page-image"
                 src={data.Character.image.large}
                 alt={data.Character.name.full}
             />
-            <h2>{data.Character.name.full}</h2>
+            <h2 className="info-page-name">{data.Character.name.full}</h2>
             <p>{data.Character.description}</p>
 
             <section className="info-section">

@@ -1,36 +1,65 @@
 @import "../../../scss-variables.scss";
 
-nav {
+header {
     /* margin-bottom: 7rem !important; */
     // margin: 1rem 0;
     background-color: $main-dark;
     padding: 1rem;
     // border-bottom: 1px solid $main-light;
-    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.15);
+    position: relative;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+    // opacity: 0.75;
+    transition: 0.2s ease-in;
+
+    display: flex;
+    justify-content: space-between;
 
     animation: slide-from-top 0.2s ease-out;
-}
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    padding: 0;
-}
-nav ul li {
-}
-nav ul li a {
-    // background-color: $main-light;
-    transition: 0.2s ease-in;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    color: $main-light;
-}
-nav ul li a:hover {
-    opacity: 0.8;
-}
 
+    a {
+        h1 {
+            font-size: 1.5rem;
+            color: $main-light;
+        }
+    }
+
+    nav {
+        ul {
+            height: 100%;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0;
+            li a {
+                // background-color: $main-light;
+                transition: 0.2s ease-in;
+                padding: 0.5rem 1rem;
+                // border-radius: 0.5rem;
+                color: $main-light;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+}
+.header-scrolled {
+    background-color: $main-transparent;
+    padding: 0.25rem;
+
+    ul {
+        li a {
+            padding: 0.25rem 1rem;
+            border-radius: 0;
+        }
+    }
+}
 @keyframes slide-from-top {
     0% {
         transform: translateY(-100%);

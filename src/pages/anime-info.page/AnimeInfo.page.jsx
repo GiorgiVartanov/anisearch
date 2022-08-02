@@ -29,14 +29,18 @@ const AnimeInfo = () => {
                             ? data.Media.bannerImage
                             : data.Media.coverImage.extraLarge
                     })`,
-                    // backgroundColor: data.Media.coverImage.color,
                 }}
+                // style={
+                //     data.Media.bannerImage
+                //         ? { backgroundImage: `url(${data.Media.bannerImage})` }
+                //         : {
+                //               backgroundColor: data.Media.coverImage.color,
+                //               minHeight: "20vh",
+                //           }
+                // }
                 className="hero-image"
             >
-                <div className="hero-text">
-                    <h1 className="title">{data.Media.title.romaji}</h1>
-                    <h3 className="sub-title">{data.Media.title.native}</h3>
-                </div>
+                <div className="hero-text"></div>
             </div>
 
             <div className="info-page centered">

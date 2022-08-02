@@ -178,7 +178,7 @@ button:hover {
 
 .centered {
     width: 80%;
-    margin: 2.5rem auto;
+    margin: 5rem auto 2.5rem;
     max-width: 800px;
 }
 
@@ -211,6 +211,13 @@ button:hover {
     h3 {
         margin: 0.5rem 0.5rem 1rem 0.5rem;
     }
+}
+.info-page-image {
+    margin: 1rem 0;
+    border: 1px solid $main-dark;
+}
+.info-page-name {
+    margin: 1rem 0;
 }
 
 @media screen and (max-width: 1200px) {
