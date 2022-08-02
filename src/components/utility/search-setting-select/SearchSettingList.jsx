@@ -18,7 +18,9 @@ const SearchSettingList = ({ name, options, changeSelected }) => {
 
     return (
         <div className="search-select-holder">
-            <h5 className="search-select-name">{name}</h5>
+            <label className="search-select-name" htmlFor={name}>
+                {name}
+            </label>
             <select
                 className="search-select"
                 name={name}

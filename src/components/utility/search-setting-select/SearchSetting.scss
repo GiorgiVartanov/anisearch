@@ -8,11 +8,13 @@
         color: $main-dimmed;
         opacity: 0.5;
         white-space: nowrap;
+        font-size: 0.9rem;
     }
     .search-select {
         border: none;
         outline: none;
-        background-color: white;
+        background-color: $main-dark;
+        color: $main-light;
         padding: 0.25rem 0.5rem;
         // border-radius: 0.5rem;
         box-shadow: 0 0 5px 2px $shadow-color;
