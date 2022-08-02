@@ -104,33 +104,31 @@ const AnimeCards = ({
         return <p className="warning">No Results</p>;
 
     return (
-        <div className="centered">
-            <div className="card-holder">
-                {data.Page.media.map((show, index) => {
-                    if (data.Page.media.length === index + 1) {
-                        return (
-                            <AnimeCard
-                                myref={lastCard}
-                                key={show.id}
-                                id={show.id}
-                                title={show.title.romaji}
-                                coverImage={show.coverImage.large}
-                                type={type.value}
-                            />
-                        );
-                    } else {
-                        return (
-                            <AnimeCard
-                                key={show.id}
-                                id={show.id}
-                                title={show.title.romaji}
-                                coverImage={show.coverImage.large}
-                                type={type.value}
-                            />
-                        );
-                    }
-                })}
-            </div>
+        <div className="card-holder">
+            {data.Page.media.map((show, index) => {
+                if (data.Page.media.length === index + 1) {
+                    return (
+                        <AnimeCard
+                            myref={lastCard}
+                            key={show.id}
+                            id={show.id}
+                            name={show.title.romaji}
+                            image={show.coverImage.large}
+                            type={type.value}
+                        />
+                    );
+                } else {
+                    return (
+                        <AnimeCard
+                            key={show.id}
+                            id={show.id}
+                            name={show.title.romaji}
+                            image={show.coverImage.large}
+                            type={type.value}
+                        />
+                    );
+                }
+            })}
         </div>
     );
 };

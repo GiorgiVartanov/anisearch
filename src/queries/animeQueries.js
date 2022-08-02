@@ -199,6 +199,21 @@ const GET_CHARACTER_PAGE = gql`
             }
             description
             media {
+                edges {
+                    node {
+                        id
+                        type
+                    }
+                    voiceActors(language: JAPANESE) {
+                        id
+                        name {
+                            full
+                        }
+                        image {
+                            large
+                        }
+                    }
+                }
                 nodes {
                     id
                     type

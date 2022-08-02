@@ -2,7 +2,6 @@ import "./animeInfo.scss";
 
 import Genre from "../../components/utility/genre.component/Genre";
 import AnimeCard from "../../components/body/anime-card/AnimeCard";
-import CharacterCard from "../../components/body/character-card/CharacterCard";
 import Loading from "../../components/utility/loading.component/Loading";
 import EpisodeCard from "../../components/body/episode-card/EpisodeCard";
 
@@ -40,7 +39,7 @@ const AnimeInfo = () => {
                 </div>
             </div>
 
-            <div className="info-page">
+            <div className="info-page centered">
                 <img
                     className="cover-image"
                     src={data.Media.coverImage.extraLarge}
@@ -131,8 +130,8 @@ const AnimeInfo = () => {
                                 <AnimeCard
                                     key={relation.node.id}
                                     id={relation.node.id}
-                                    title={relation.node.title.romaji}
-                                    coverImage={relation.node.coverImage.large}
+                                    name={relation.node.title.romaji}
+                                    image={relation.node.coverImage.large}
                                     type={relation.node.type}
                                 />
                             ))}
@@ -142,11 +141,12 @@ const AnimeInfo = () => {
                         <h3>Characters</h3>
                         <div className="relation-list">
                             {data.Media.characters.nodes.map((character) => (
-                                <CharacterCard
+                                <AnimeCard
                                     key={character.id}
                                     id={character.id}
                                     name={character.name.full}
                                     image={character.image.large}
+                                    type={"character"}
                                 />
                             ))}
                         </div>

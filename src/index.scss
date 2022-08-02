@@ -176,32 +176,80 @@ button:hover {
     background-color: #2e3236;
 }
 
-// @media screen and (max-width: 1400px) {
-//     .changed-centered {
-//         max-width: 60%;
-//     }
-//     .item-holder {
-//         grid-template-columns: repeat(3, 1fr);
+.centered {
+    width: 80%;
+    margin: 2.5rem auto;
+    max-width: 800px;
+}
 
-//         .item {
-//             img {
-//                 height: 40vw;
-//             }
-//         }
-//     }
-// }
-// @media screen and (max-width: 1400px) {
-//     .changed-centered {
-//         max-width: 70%;
-//     }
-// }
-// @media screen and (max-width: 1000px) {
-//     .changed-centered {
-//         max-width: 80%;
-//     }
-// }
-// @media screen and (max-width: 600px) {
-//     .changed-centered {
-//         max-width: 90%;
-//     }
-// }
+.card-holder {
+    // width: fit-content;
+    width: 80%;
+    margin: 2.5rem auto;
+    display: grid;
+    justify-content: center;
+    gap: 1rem;
+    grid-template-columns: repeat(5, 200px);
+    // width: 80%;
+    a {
+    }
+}
+
+.thin-card-holder {
+    width: fit-content;
+    margin: auto;
+    display: grid;
+    justify-content: center;
+    gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.info-section {
+    border-top: 1px solid $main-dark;
+    margin-top: 2.5rem;
+
+    h3 {
+        margin: 0.5rem 0.5rem 1rem 0.5rem;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .card-holder {
+        grid-template-columns: repeat(4, 200px);
+    }
+    .relation-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media screen and (max-width: 1000px) {
+    .card-holder {
+        grid-template-columns: repeat(3, 200px);
+    }
+    .relation-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media screen and (max-width: 800px) {
+    .card-holder {
+        grid-template-columns: repeat(2, 180px);
+    }
+    .centered {
+        width: 95%;
+    }
+    .relation-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (max-width: 600px) {
+    .card-holder {
+        grid-template-columns: repeat(2, 140px);
+    }
+    .relation-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .info-page {
+        width: 95%;
+    }
+}
+@media screen and (max-width: 500px) {
+}
