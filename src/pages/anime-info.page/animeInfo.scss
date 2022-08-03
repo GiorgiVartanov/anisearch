@@ -53,12 +53,15 @@
     gap: 0.5rem;
 }
 
-.relations {
+.other-info {
     .anime-info-section {
         & > h3 {
             margin: 0 auto 1rem;
             // text-align: center;
             // border-bottom: 1px solid $main-dark;
+        }
+        & > p {
+            margin: 1rem;
         }
     }
 }

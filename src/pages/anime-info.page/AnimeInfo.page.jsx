@@ -106,11 +106,11 @@ const AnimeInfo = () => {
                     </div>
                 </div>
 
-                <div className="description">
-                    <h3>description</h3>
-                    <p>{data.Media.description}</p>
-                </div>
-                <div className="relations">
+                <div className="other-info">
+                    <section className="anime-info-section">
+                        <h3>description</h3>
+                        <p>{data.Media.description}</p>
+                    </section>
                     {type === "ANIME" && (
                         <section className="anime-info-section">
                             <h3>Episodes</h3>
