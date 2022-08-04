@@ -1,27 +1,27 @@
 import "./home.scss";
 
-import ScrollSection from "../../components/body/scroll-section/ScrollSection";
+import HomePageSection from "../../components/body/home-page-section/HomePageSection";
 
 const Home = () => {
     return (
         <main className="home-page">
             <section>
-                <ScrollSection
+                <HomePageSection
                     name={"Future Shows"}
                     status={"NOT_YET_RELEASED"}
                     sortBy={"POPULARITY_DESC"}
                 />
-                <ScrollSection
+                <HomePageSection
                     name={"Trending Now"}
                     status={"RELEASING"}
                     sortBy={"TRENDING_DESC"}
                 />
-                <ScrollSection
+                <HomePageSection
                     name={"Popular This Season"}
                     status={"RELEASING"}
                     sortBy={"POPULARITY_DESC"}
                 />
-                <ScrollSection
+                <HomePageSection
                     name={"All Time Popular"}
                     sortBy={"POPULARITY_DESC"}
                 />

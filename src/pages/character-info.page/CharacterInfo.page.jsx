@@ -1,7 +1,7 @@
 import "./characterInfo.scss";
 
 import Loading from "../../components/utility/loading.component/Loading";
-import AnimeCard from "../../components/body/anime-card/AnimeCard";
+import Card from "../../components/body/card/Card";
 
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
@@ -17,18 +17,6 @@ const CharacterInfo = () => {
 
     if (loading) return <Loading />;
     if (error) return <p>Something Went Wrong</p>;
-
-    // console.log(data.Character.media.edges.node.id);
-    // console.log(data.Character.media.edges);
-    // if (data.Character.media.edges.node.type === "ANIME") {
-    //     console.log(data.Character.media.edges.voiceActors);
-    // }
-    // data.Character.media.edges.map((item) => {
-    //     if (item.node.type === "ANIME") {
-    //         console.log(item.voiceActors[0].id + "_" + item.node.id);
-    //     }
-    // });
-    // console.log(data.Character.media.nodes);
 
     return (
         <div className="centered">
@@ -46,7 +34,7 @@ const CharacterInfo = () => {
                     {data.Character.media.edges[0].node.type === "ANIME" &&
                         data.Character.media.edges[0].voiceActors[0] !==
                             undefined && (
-                            <AnimeCard
+                            <Card
                                 id={
                                     data.Character.media.edges[0].voiceActors[0]
                                         .id
@@ -70,7 +58,7 @@ const CharacterInfo = () => {
                 <div className="thin-card-holder">
                     {data.Character.media.nodes.map((item) => {
                         return (
-                            <AnimeCard
+                            <Card
                                 key={item.id}
                                 id={item.id}
                                 name={item.title.romaji}
@@ -88,7 +76,7 @@ const CharacterInfo = () => {
                     item.voiceActors[0] !== undefined
                 )
                     return (
-                        <AnimeCard
+                        <Card
                             key={item.voiceActors[0].id + "_" + item.node.id}
                             id={item.voiceActors[0].id}
                             name={item.voiceActors[0].name.full}

@@ -1,5 +1,5 @@
 import Loading from "../../components/utility/loading.component/Loading";
-import AnimeCard from "../../components/body/anime-card/AnimeCard";
+import Card from "../../components/body/card/Card";
 
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
@@ -54,7 +54,7 @@ const StaffInfo = () => {
                 <div className="thin-card-holder">
                     {data.Staff.characters.edges.map((item) => {
                         return (
-                            <AnimeCard
+                            <Card
                                 key={item.node.id}
                                 id={item.node.id}
                                 image={item.node.image.large}

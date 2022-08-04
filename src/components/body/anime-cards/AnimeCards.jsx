@@ -1,6 +1,6 @@
 import "./animeCards.scss";
 
-import AnimeCard from "../anime-card/AnimeCard.jsx";
+import Card from "../card/Card.jsx";
 import Loading from "../../utility/loading.component/Loading";
 
 import { useLazyQuery } from "@apollo/client";
@@ -108,7 +108,7 @@ const AnimeCards = ({
             {data.Page.media.map((show, index) => {
                 if (data.Page.media.length === index + 1) {
                     return (
-                        <AnimeCard
+                        <Card
                             myref={lastCard}
                             key={show.id}
                             id={show.id}
@@ -119,7 +119,7 @@ const AnimeCards = ({
                     );
                 } else {
                     return (
-                        <AnimeCard
+                        <Card
                             key={show.id}
                             id={show.id}
                             name={show.title.romaji}

@@ -4,7 +4,7 @@ import AnimeCards from "../anime-cards/AnimeCards";
 
 import { Link } from "react-router-dom";
 
-const ScrollSection = ({ name, sortBy, status }) => {
+const HomePageSection = ({ name, sortBy, status }) => {
     return (
         <article className="anime-section-holder">
             <div className="article-text">
@@ -27,4 +27,4 @@ const ScrollSection = ({ name, sortBy, status }) => {
     );
 };
 
-export default ScrollSection;
+export default HomePageSection;

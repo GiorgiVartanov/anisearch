@@ -36,6 +36,11 @@ function App() {
                     <Route path="/character/:id" element={<CharacterInfo />} />
                     <Route path="/staff/:id" element={<StaffInfo />} />
                     <Route path="/search" element={<Search />} />
+                    <Route
+                        path="/search/:genre/:type/:year/:season/:sort"
+                        element={<Search />}
+                    />
+                    <Route path="/search/:sortParam" element={<Search />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
                 <Footer />

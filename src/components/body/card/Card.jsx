@@ -1,8 +1,8 @@
-import "./animeCard.scss";
+import "./card.scss";
 
 import { Link } from "react-router-dom";
 
-const AnimeCard = ({ myref, id, name, image, type }) => {
+const Card = ({ myref, id, name, image, type }) => {
     return (
         <Link to={`/${type}/${id}`}>
             <div className="card" ref={myref}>
@@ -22,4 +22,4 @@ const AnimeCard = ({ myref, id, name, image, type }) => {
     );
 };
 
-export default AnimeCard;
+export default Card;

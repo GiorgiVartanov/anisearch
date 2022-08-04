@@ -7,11 +7,17 @@
     border-radius: 0.5rem;
     padding: 0.25rem 0.5rem;
     white-space: nowrap;
+    transition: 0.2s ease-in;
+
+    &:hover,
+    &:active {
+        padding: 0.25rem 0.75rem;
+    }
 }
-.anime-genre:hover {
-    background-color: $main-light;
-    color: $anime-highlight;
-}
+// .anime-genre:hover {
+//     background-color: $main-light;
+//     color: $anime-highlight;
+// }
 // .anime-genre:active {
 //     background-color: #3b7691;
 // }

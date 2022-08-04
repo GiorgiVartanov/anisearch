@@ -1,7 +1,7 @@
 import "./animeInfo.scss";
 
 import Genre from "../../components/utility/genre.component/Genre";
-import AnimeCard from "../../components/body/anime-card/AnimeCard";
+import Card from "../../components/body/card/Card";
 import Loading from "../../components/utility/loading.component/Loading";
 import EpisodeCard from "../../components/body/episode-card/EpisodeCard";
 
@@ -111,27 +111,30 @@ const AnimeInfo = () => {
                         <h3>description</h3>
                         <p>{data.Media.description}</p>
                     </section>
-                    {type === "ANIME" && (
-                        <section className="anime-info-section">
-                            <h3>Episodes</h3>
-                            <div className="anime-episode-section">
-                                {data.Media.streamingEpisodes.map((item) => {
-                                    return (
-                                        <EpisodeCard
-                                            key={item.title}
-                                            title={item.title}
-                                            url={item.url}
-                                        />
-                                    );
-                                })}
-                            </div>
-                        </section>
-                    )}
+                    {type === "ANIME" &&
+                        data.Media.streamingEpisodes.length > 0 && (
+                            <section className="anime-info-section">
+                                <h3>Episodes</h3>
+                                <div className="anime-episode-section">
+                                    {data.Media.streamingEpisodes.map(
+                                        (item) => {
+                                            return (
+                                                <EpisodeCard
+                                                    key={item.title}
+                                                    title={item.title}
+                                                    url={item.url}
+                                                />
+                                            );
+                                        }
+                                    )}
+                                </div>
+                            </section>
+                        )}
                     <section className="anime-info-section">
                         <h3>Shows</h3>
                         <div className="relation-list">
                             {data.Media.relations.edges.map((relation) => (
-                                <AnimeCard
+                                <Card
                                     key={relation.node.id}
                                     id={relation.node.id}
                                     name={relation.node.title.romaji}
@@ -145,7 +148,7 @@ const AnimeInfo = () => {
                         <h3>Characters</h3>
                         <div className="relation-list">
                             {data.Media.characters.nodes.map((character) => (
-                                <AnimeCard
+                                <Card
                                     key={character.id}
                                     id={character.id}
                                     name={character.name.full}

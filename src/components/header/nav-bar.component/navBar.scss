@@ -60,11 +60,92 @@ header {
         }
     }
 }
+.dropdown-button {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    right: 10px;
+    display: none;
+    background-color: transparent;
+
+    svg {
+        height: 100%;
+        width: 100%;
+        color: $main-light;
+
+        &:hover {
+            opacity: 0.9;
+        }
+
+        animation: rotate 0.2s ease-in;
+    }
+}
+.dropdown-opened {
+    display: block !important;
+    animation: appear 0.4s ease-in;
+}
+
+@media screen and (max-width: 500px) {
+    header {
+        flex-direction: column;
+        a {
+            width: fit-content;
+        }
+        nav {
+            display: none;
+            padding-top: 10px;
+            ul {
+                flex-direction: column;
+                li {
+                    width: 80vw;
+                    & > a {
+                        width: 100%;
+                        display: block;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+    .header-scrolled {
+        nav {
+            // background-color: $main-transparent;
+            padding: 0.25rem;
+        }
+        .dropdown-button {
+            svg {
+                color: $main-dark;
+            }
+        }
+    }
+
+    .dropdown-button {
+        display: block;
+    }
+}
+
 @keyframes slide-from-top {
     0% {
         transform: translateY(-100%);
     }
     100% {
-        transform: translateX(0%);
+        transform: translateY(0%);
+    }
+}
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(180deg);
     }
 }
