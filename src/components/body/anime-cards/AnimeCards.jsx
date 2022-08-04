@@ -27,7 +27,7 @@ const AnimeCards = ({
 
     let page = 1; // I am not sure if it is right to use something like this in react
 
-    const observer = useRef();
+    const observer = useRef(); // it will hold reference to last created element
     const lastCard = useCallback(
         // it is used to fetch more data when user is on the bottom of a page
         (node) => {
@@ -35,6 +35,8 @@ const AnimeCards = ({
             if (loading) return;
             if (observer.current) observer.current.disconnect(); // it will disconnect observer from a previous element
             observer.current = new IntersectionObserver((entries) => {
+                // because of this it does not work on IOS safari before version 12.2
+                // and gives error[ReferenceError: Can't find variable: IntersectionObserver]
                 if (entries[0].isIntersecting && findMore) {
                     // add later in if && data.Page.pageInfo.hasNextPage
                     fetchMore({
@@ -109,7 +111,7 @@ const AnimeCards = ({
                 if (data.Page.media.length === index + 1) {
                     return (
                         <Card
-                            myref={lastCard}
+                            myref={lastCard} // we are passing this only to last element
                             key={show.id}
                             id={show.id}
                             name={show.title.romaji}

@@ -2,16 +2,15 @@ import "./search.scss";
 
 import AnimeCards from "../../components/body/anime-cards/AnimeCards";
 import SearchSettingList from "../../components/utility/search-setting-select/SearchSettingList";
-import Loading from "../../components/utility/loading.component/Loading";
 
 import {
     typeOfMedia,
     animeTypes,
-    mangaTypes,
     animeSortSettings,
-    mangaSortSettings,
     seasons,
     genres,
+    // mangaSortSettings,
+    // mangaTypes,
 } from "../../searchSettings";
 
 import { useState, useEffect } from "react";
@@ -57,9 +56,7 @@ const Search = () => {
     // }, [selectedGenre]);
 
     const handleSearch = (e) => {
-        // MAKE IT SO IT NAVIGATES TO /:search
         e.preventDefault();
-        // client.clearStore();
         setSearchedValue(e.target.value);
     };
 
@@ -72,6 +69,7 @@ const Search = () => {
             if (searchedValue === "") setAnimeToSearch(undefined);
             else setAnimeToSearch(searchedValue);
         }, 1500);
+        // it will start to search 1.5s after user ended typing
 
         return () => clearTimeout(timer);
     }, [searchedValue]);

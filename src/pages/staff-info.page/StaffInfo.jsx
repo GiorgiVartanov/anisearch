@@ -25,29 +25,44 @@ const StaffInfo = () => {
             />
             <h2 className="info-page-name">{data.Staff.name.full}</h2>
             <p>{data.Staff.description}</p>
-            <div className="info-section">
-                <h3>Other Information</h3>
-                <div className="info-section-text">
-                    <p>hometown : {data.Staff.homeTown}</p>
-                    <p>age : {data.Staff.age}</p>
-                    <p>
-                        date of birth : {data.Staff.dateOfBirth.year} /{" "}
-                        {data.Staff.dateOfBirth.month} /{" "}
-                        {data.Staff.dateOfBirth.day}
-                    </p>
-                    {data.Staff.dateOfDeath.year && (
-                        <p>
-                            date of death : {data.Staff.dateOfDeath.year} /{" "}
-                            {data.Staff.dateOfDeath.month} /{" "}
-                            {data.Staff.dateOfDeath.day}
-                        </p>
-                    )}
-                    <p>
-                        Years Of Active : {data.Staff.yearsActive[0]} -{" "}
-                        {data.Staff.yearsActive[1] || "Current Days"}
-                    </p>
-                </div>
-            </div>
+            {data.Staff.homeTown &&
+                data.Staff.age &&
+                data.Staff.dateOfBirth.year &&
+                data.Staff.dateOfDeath.year && (
+                    // it won't be shown if we don't have at least one of those
+                    <div className="info-section">
+                        <h3>Other Information</h3>
+                        <div className="info-section-text">
+                            {data.Staff.homeTown && (
+                                <p>hometown : {data.Staff.homeTown}</p>
+                            )}
+
+                            {data.Staff.age && <p>age : {data.Staff.age}</p>}
+                            {data.Staff.dateOfBirth.year && (
+                                <p>
+                                    date of birth :{" "}
+                                    {data.Staff.dateOfBirth.year} /{" "}
+                                    {data.Staff.dateOfBirth.month} /{" "}
+                                    {data.Staff.dateOfBirth.day}
+                                </p>
+                            )}
+
+                            {data.Staff.dateOfDeath.year && (
+                                <p>
+                                    date of death :{" "}
+                                    {data.Staff.dateOfDeath.year} /{" "}
+                                    {data.Staff.dateOfDeath.month} /{" "}
+                                    {data.Staff.dateOfDeath.day}
+                                </p>
+                            )}
+                            <p>
+                                Years Of Active :{" "}
+                                {data.Staff.yearsActive[0] || "Not Known"} -{" "}
+                                {data.Staff.yearsActive[1] || "Current Days"}
+                            </p>
+                        </div>
+                    </div>
+                )}
 
             <div className="info-section">
                 <h3>Voiced</h3>

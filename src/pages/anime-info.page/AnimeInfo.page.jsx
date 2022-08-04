@@ -23,6 +23,9 @@ const AnimeInfo = () => {
     return (
         <>
             <div
+                // some shows do not have bannerImage, so we need to
+                // use something else as a hero image, we can use part
+                // of coverImage of main color of coverImage
                 style={{
                     backgroundImage: `url(${
                         data.Media.bannerImage
@@ -35,9 +38,9 @@ const AnimeInfo = () => {
                 //         ? { backgroundImage: `url(${data.Media.bannerImage})` }
                 //         : {
                 //               backgroundColor: data.Media.coverImage.color,
-                //               minHeight: "20vh",
                 //           }
                 // }
+
                 className="hero-image"
             >
                 <div className="hero-text"></div>
@@ -47,6 +50,7 @@ const AnimeInfo = () => {
                 <img
                     className="cover-image"
                     src={data.Media.coverImage.extraLarge}
+                    alt={data.Media.title.native}
                 />
                 <div className="small-info">
                     <h2 className="title">
