@@ -1,9 +1,15 @@
 import "./footer.scss";
 
+import { AiFillGithub } from "react-icons/ai";
+
 const Footer = () => {
     return (
         <footer>
-            <a href="https://github.com/PhYell">GitHub</a>
+            <div className="footer-body">
+                <a href="https://github.com/PhYell/anisearch">
+                    <AiFillGithub />
+                </a>
+            </div>
         </footer>
     );
 };
