@@ -6,7 +6,6 @@ const Card = ({ myref, id, name, image, type }) => {
     return (
         <Link to={`/${type}/${id}`}>
             <div className="card" ref={myref}>
-                {/* <img className="card-image" src={image} alt={name}></img> */}
                 <div
                     className="card-image"
                     style={{

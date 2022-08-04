@@ -9,9 +9,9 @@ const HomePageSection = ({ name, sortBy, status }) => {
         <article className="anime-section-holder">
             <div className="article-text">
                 <h3>{name}</h3>
-                <Link className="see-more-link" to={`/${sortBy}`}>
+                {/* <Link className="see-more-link" to={`/${sortBy}`}>
                     see more
-                </Link>
+                </Link> */}
             </div>
 
             <div className="show-list">

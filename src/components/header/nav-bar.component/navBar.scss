@@ -21,6 +21,7 @@ header {
 
     a {
         h1 {
+            margin-left: 0.5rem;
             font-size: 1.5rem;
             color: $main-light;
         }
@@ -93,8 +94,8 @@ header {
         }
         nav {
             display: none;
-            padding-top: 10px;
             ul {
+                padding-top: 10px;
                 flex-direction: column;
                 li {
                     width: 80vw;
