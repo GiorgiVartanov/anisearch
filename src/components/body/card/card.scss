@@ -5,14 +5,14 @@
     flex-direction: column;
     max-width: 200px;
     cursor: pointer;
-    transition: 0.1s ease-in;
+    transition: 0.2s ease-in;
 
     .card-image {
         width: 200px;
         height: 300px;
-        box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0 10px 1px $shadow-color;
         height: 300px;
-        transition: 0.1s ease-in;
+        transition: 0.2s ease-in;
         background-size: cover;
         background-position: center;
     }
@@ -22,13 +22,12 @@
         padding: 0.3rem 0.6rem;
         font-weight: bold;
     }
-}
-
-.card:hover,
-.card:active {
-    transform: translateY(-3px);
-    .card-image {
-        box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.3);
+    &:hover,
+    &:active {
+        .card-image {
+            // box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 15px 5px $shadow-color;
+        }
     }
 }
 

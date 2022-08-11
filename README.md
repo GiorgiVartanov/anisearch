@@ -24,10 +24,8 @@
 
 ## Overview
 
-<!--![screenshot](https://i.ibb.co/xYN94kG/image.png)-->
-
 <a align="center" href="https://anisearcher.netlify.app/">
-    <img src="https://screenshot-proxy.netlify.app/f_avif,w_336/https://d33wubrfki0l68.cloudfront.net/62e55173d323e50008ceeb1a/screenshot_2022-07-30-15-43-18-0000.png">
+    <img src="https://screenshot-proxy.netlify.app/f_avif,w_336/https://d33wubrfki0l68.cloudfront.net/62ebb7a9cab391000871e8be/screenshot_2022-08-04-12-12-54-0000.png">
 </a>
 
 This is a website where you can search for anime or manga,
@@ -38,9 +36,11 @@ ones would come oun in the next season
 
 ## Tools
 
--   React (hooks)
--   GraphQL
--   SCSS
+-   <a href="https://reactjs.org/"> React </a> (hooks)
+-   <a href="https://reactrouter.com/docs/en/v6/getting-started"> React Router </a> (V6)
+-   <a href="https://graphql.org/"> GraphQL </a>
+-   <a href="https://sass-lang.com/"> SCSS </a>
+-   <a href="https://www.netlify.com/">Netlify</a> (for deploy)
 
 -   <a href="https://anilist.gitbook.io/anilist-apiv2-docs/">
        AniList API

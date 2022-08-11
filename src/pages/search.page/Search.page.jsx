@@ -15,16 +15,26 @@ import {
 
 import { useState, useEffect } from "react";
 
+import { useSearchParams } from "react-router-dom";
+
 const Search = () => {
+    const [searchParams, setSearchParams] = useSearchParams({
+        genre: "Any",
+        type: "Any",
+        year: "Any",
+        season: "Any",
+        sortBy: "ID",
+    });
+
+    const genre = searchParams.get("genre");
+    const type = searchParams.get("type");
+    const year = searchParams.get("year");
+    const season = searchParams.get("season");
+    const sortBy = searchParams.get("sortBy");
+
     const [searchedValue, setSearchedValue] = useState("");
     const [searchedType, setSearchedType] = useState({ value: "ANIME" });
     const [animeToSearch, setAnimeToSearch] = useState();
-
-    const [selectedGenre, setSelectedGenre] = useState();
-    const [selectedType, setSelectedType] = useState();
-    const [selectedYear, setSelectedYear] = useState();
-    const [selectedSeason, setSelectedSeason] = useState();
-    const [sortBy, setSortBy] = useState();
 
     const years = [{ value: undefined, name: "Any" }];
     const currentYear = new Date().getFullYear();
@@ -35,25 +45,56 @@ const Search = () => {
     }
 
     // we will pass this 4 functions to <SearchSettingList /> components, so they will be able to change state of <Search /> component
-    const addSearchedGenre = (value) => {
-        setSelectedGenre(value === "Any" ? undefined : value);
+    const addSearchedGenre = (e) => {
+        const value = e.target.children[e.target.selectedIndex].value;
+        setSearchParams({
+            genre: value,
+            type: type,
+            year: year,
+            season: season,
+            sortBy: sortBy,
+        });
     };
-    const addSearchedTypes = (value) => {
-        setSelectedType(value === "Any" ? undefined : value);
+    const addSearchedTypes = (e) => {
+        const value = e.target.children[e.target.selectedIndex].value;
+        setSearchParams({
+            genre: genre,
+            type: value,
+            year: year,
+            season: season,
+            sortBy: sortBy,
+        });
     };
-    const addSearchedYears = (value) => {
-        setSelectedYear(value === "Any" ? undefined : value);
+    const addSearchedYears = (e) => {
+        const value = e.target.children[e.target.selectedIndex].value;
+        setSearchParams({
+            genre: genre,
+            type: type,
+            year: value,
+            season: season,
+            sortBy: sortBy,
+        });
     };
-    const addSearchedSeasons = (value) => {
-        setSelectedSeason(value === "Any" ? undefined : value);
+    const addSearchedSeasons = (e) => {
+        const value = e.target.children[e.target.selectedIndex].value;
+        setSearchParams({
+            genre: genre,
+            type: type,
+            year: year,
+            season: value,
+            sortBy: sortBy,
+        });
     };
-    const addSort = (value) => {
-        setSortBy(value === "Any" ? undefined : value);
+    const addSort = (e) => {
+        const value = e.target.children[e.target.selectedIndex].value;
+        setSearchParams({
+            genre: genre,
+            type: type,
+            year: year,
+            season: season,
+            sortBy: value,
+        });
     };
-
-    // useEffect(() => {
-    //     console.log(selectedGenre);
-    // }, [selectedGenre]);
 
     const handleSearch = (e) => {
         e.preventDefault();
@@ -98,21 +139,27 @@ const Search = () => {
                     options={genres}
                     changeSelected={addSearchedGenre}
                 />
-                <SearchSettingList
-                    name={"Type"}
-                    options={animeTypes}
-                    changeSelected={addSearchedTypes}
-                />
-                <SearchSettingList
-                    name={"Year"}
-                    options={years}
-                    changeSelected={addSearchedYears}
-                />
-                <SearchSettingList
-                    name={"Season"}
-                    options={seasons}
-                    changeSelected={addSearchedSeasons}
-                />
+                {searchedType.value !== "MANGA" ? (
+                    <>
+                        <SearchSettingList
+                            name={"Type"}
+                            options={animeTypes}
+                            changeSelected={addSearchedTypes}
+                        />
+                        <SearchSettingList
+                            name={"Year"}
+                            options={years}
+                            changeSelected={addSearchedYears}
+                        />
+                        <SearchSettingList
+                            name={"Season"}
+                            options={seasons}
+                            changeSelected={addSearchedSeasons}
+                        />
+                    </>
+                ) : (
+                    ""
+                )}
                 <SearchSettingList
                     name={"Sort By"}
                     options={animeSortSettings}
@@ -122,15 +169,14 @@ const Search = () => {
             <AnimeCards
                 search={animeToSearch}
                 type={searchedType}
-                genre={selectedGenre}
-                showType={selectedType}
-                year={selectedYear}
-                season={selectedSeason}
-                sortBy={sortBy}
+                genre={genre === "Any" ? undefined : genre}
+                showType={type === "Any" ? undefined : type}
+                year={year === "Any" ? undefined : year}
+                season={season === "Any" ? undefined : season}
+                sortBy={sortBy === "Any" ? undefined : sortBy}
                 perPage={20}
                 findMore={true}
             />
-            ;
         </>
     );
 };
