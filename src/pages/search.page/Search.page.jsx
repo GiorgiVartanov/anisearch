@@ -105,6 +105,10 @@ const Search = () => {
         setSearchedType(typeOfMedia[e.target.selectedIndex]);
     };
 
+    const handleKeyPress = (e) => {
+        if (e.which === 13) setAnimeToSearch(searchedValue);
+    };
+
     useEffect(() => {
         const timer = setTimeout(() => {
             if (searchedValue === "") setAnimeToSearch(undefined);
@@ -129,6 +133,7 @@ const Search = () => {
                     type="text"
                     className="search-bar"
                     onChange={handleSearch}
+                    onKeyPress={handleKeyPress}
                     value={searchedValue}
                 />
                 <button className="square-button">=</button>
