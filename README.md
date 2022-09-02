@@ -28,11 +28,18 @@
     <img src="https://screenshot-proxy.netlify.app/f_avif,w_336/https://d33wubrfki0l68.cloudfront.net/62ebb7a9cab391000871e8be/screenshot_2022-08-04-12-12-54-0000.png">
 </a>
 
-This is a website where you can search for anime or manga,
-check what animes are popular in current season and which
-ones would come oun in the next season
+you can see demo on https://anisearcher.netlify.app/
 
--   you can see demo on https://anisearcher.netlify.app/
+This is a website where you can search for anime or manga.
+
+-   search for anime or manga by it's name, search bar searches when 1.5 seconds have passed since user last typed, or by simply pressing enter key.
+-   select genre/type/year/season of searched anime (manga has only genre).
+-   select in which way shows needs to be sorted, for example by year, by score etc.
+-   view which shows are popular in the current season, are coming in the next one or all times popular.
+-   each anime has it's own page, where you can see all characters sorted by their importance in the show, anime/manga related to this one and episodes to this show (it links to this show on crunchyroll)
+-   each character has own page, where you can see information about this character, shows featuring this character and voice actor.
+-   each voice actor has own page, where you can see all character voiced by him/her and their bio
+-   each manga has it's own page where you can see all characters and related anime/manga
 
 ## Tools
 
@@ -41,10 +48,9 @@ ones would come oun in the next season
 -   <a href="https://graphql.org/"> GraphQL </a>
 -   <a href="https://sass-lang.com/"> SCSS </a>
 -   <a href="https://www.netlify.com/">Netlify</a> (for deploy)
-
 -   <a href="https://anilist.gitbook.io/anilist-apiv2-docs/">
        AniList API
-     </a>
+     </a> GraphQL API for anime and manga
 
 ## Contact
 

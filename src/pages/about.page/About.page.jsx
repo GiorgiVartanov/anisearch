@@ -1,7 +1,7 @@
 const About = () => {
     return (
         <h1 style={{ margin: "300px auto" }}>
-            This website was created just for a learning purposes
+            This website was created as a portfolio project
         </h1>
     );
 };
