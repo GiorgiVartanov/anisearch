@@ -1,7 +1,13 @@
 import "./genre.scss";
 
+import { Link } from "react-router-dom";
+
 const Genre = ({ name }) => {
-    return <p className="anime-genre">{name}</p>;
+    return (
+        <Link to={`/search/?genre=${name}`} className="anime-genre">
+            {name}
+        </Link>
+    );
 };
 
 export default Genre;

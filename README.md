@@ -10,7 +10,7 @@
       Demo
     </a>
     <span> | </span>
-    <a href="https://github.com/PhYell/anisearch">
+    <a href="https://github.com/GeorgeVRT/anisearch">
       Solution
     </a>
   </h3>
@@ -33,8 +33,9 @@ you can see demo on https://anisearcher.netlify.app/
 This is a website where you can search for anime or manga.
 
 -   search for anime or manga by it's name, search bar searches when 1.5 seconds have passed since user last typed, or by simply pressing enter key.
+-   search page has infinite scroll, it fetches new data when user scrolled to last element.
 -   select genre/type/year/season of searched anime (manga has only genre).
--   select in which way shows needs to be sorted, for example by year, by score etc.
+-   select in which way shows will be be sorted, for example by year, by score etc.
 -   view which shows are popular in the current season, are coming in the next one or all times popular.
 -   each anime has it's own page, where you can see all characters sorted by their importance in the show, anime/manga related to this one and episodes to this show (it links to this show on crunchyroll)
 -   each character has own page, where you can see information about this character, shows featuring this character and voice actor.
@@ -54,4 +55,4 @@ This is a website where you can search for anime or manga.
 
 ## Contact
 
--   GitHub [@phYell](https://github.com/PhYell)
+-   GitHub [@GeorgeVRT](https://github.com/GeorgeVRT)

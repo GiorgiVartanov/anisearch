@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <footer>
             <div className="footer-body">
-                <a href="https://github.com/PhYell/anisearch">
+                <a href="https://github.com/GeorgeVRT/anisearch">
                     <AiFillGithub />
                 </a>
             </div>

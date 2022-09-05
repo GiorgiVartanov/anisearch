@@ -1,6 +1,6 @@
 import "./SearchSetting.scss";
 
-const SearchSettingList = ({ name, options, changeSelected }) => {
+const SearchSettingList = ({ name, options, changeSelected, selected }) => {
     return (
         <div className="search-select-holder">
             <label className="search-select-name" htmlFor={name}>
@@ -11,6 +11,7 @@ const SearchSettingList = ({ name, options, changeSelected }) => {
                 name={name}
                 id={name}
                 onChange={changeSelected}
+                defaultValue={selected}
             >
                 {options.map((option) => (
                     <option key={option.name} value={option.value}>

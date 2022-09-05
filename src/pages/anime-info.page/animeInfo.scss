@@ -35,9 +35,11 @@
 }
 
 .hero-image {
-    background-attachment: fixed;
+    margin-top: 4rem;
+    // background-attachment: fixed;
     z-index: 1;
     width: 100%;
+    // min-height: 600px;
     min-height: 60vh;
     border-bottom: 1px solid $main-light;
     position: relative;
@@ -45,6 +47,17 @@
     background-repeat: no-repeat;
     background-size: cover;
     border-bottom: 2px solid $main-dark;
+
+    &::before {
+        content: "";
+        height: 4rem;
+        width: 100%;
+        background-color: red;
+        display: block;
+        position: absolute;
+        top: -4rem;
+        background-color: $main-dark;
+    }
 }
 
 .genre-holder {

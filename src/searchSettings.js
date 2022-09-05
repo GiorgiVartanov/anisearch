@@ -63,7 +63,6 @@ export const genres = [
     { value: "Adventure", name: "Adventure" },
     { value: "Comedy", name: "Comedy" },
     { value: "Drama", name: "Drama" },
-    { value: "Ecchi", name: "Ecchi" },
     { value: "Fantasy", name: "Fantasy" },
     { value: "Horror", name: "Horror" },
     { value: "Mahou Shoujo", name: "Mahou Shoujo" },

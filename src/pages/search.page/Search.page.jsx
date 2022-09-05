@@ -143,6 +143,7 @@ const Search = () => {
                     name={"Genres"}
                     options={genres}
                     changeSelected={addSearchedGenre}
+                    selected={genre}
                 />
                 {searchedType.value !== "MANGA" ? (
                     <>
@@ -150,16 +151,19 @@ const Search = () => {
                             name={"Type"}
                             options={animeTypes}
                             changeSelected={addSearchedTypes}
+                            selected={type}
                         />
                         <SearchSettingList
                             name={"Year"}
                             options={years}
                             changeSelected={addSearchedYears}
+                            selected={year}
                         />
                         <SearchSettingList
                             name={"Season"}
                             options={seasons}
                             changeSelected={addSearchedSeasons}
+                            selected={season}
                         />
                     </>
                 ) : (
@@ -169,6 +173,7 @@ const Search = () => {
                     name={"Sort By"}
                     options={animeSortSettings}
                     changeSelected={addSort}
+                    selected={sortBy}
                 />
             </div>
             <AnimeCards

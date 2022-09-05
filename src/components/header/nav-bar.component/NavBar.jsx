@@ -12,7 +12,7 @@ const NavBar = () => {
     useEffect(() => {
         const detectStroll = () => {
             // if page is scrolled navbar will became thinner and transparent
-            if (window.scrollY >= 20) {
+            if (window.scrollY >= 60) {
                 setScrolled(true);
             } else {
                 setScrolled(false);

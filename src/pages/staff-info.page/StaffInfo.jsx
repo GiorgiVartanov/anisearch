@@ -24,7 +24,11 @@ const StaffInfo = () => {
                 className="info-page-image"
             />
             <h2 className="info-page-name">{data.Staff.name.full}</h2>
-            <p>{data.Staff.description}</p>
+            <div
+                // since it's text provided by API, I don't think it
+                // will be a problem to use this
+                dangerouslySetInnerHTML={{ __html: data.Staff.description }}
+            ></div>
             {data.Staff.homeTown &&
                 data.Staff.age &&
                 data.Staff.dateOfBirth.year &&

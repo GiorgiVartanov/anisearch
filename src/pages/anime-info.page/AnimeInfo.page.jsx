@@ -26,25 +26,24 @@ const AnimeInfo = () => {
                 // some shows do not have bannerImage, so we need to
                 // use something else as a hero image, we can use part
                 // of coverImage of main color of coverImage
-                style={{
-                    backgroundImage: `url(${
-                        data.Media.bannerImage
-                            ? data.Media.bannerImage
-                            : data.Media.coverImage.extraLarge
-                    })`,
-                }}
-                // style={
-                //     data.Media.bannerImage
-                //         ? { backgroundImage: `url(${data.Media.bannerImage})` }
-                //         : {
-                //               backgroundColor: data.Media.coverImage.color,
-                //           }
-                // }
-
+                // style={{
+                //     backgroundImage: `url(${
+                //         data.Media.bannerImage
+                //             ? data.Media.bannerImage
+                //             : data.Media.coverImage.extraLarge
+                //     })`,
+                // }}
+                // or use main color
+                style={
+                    data.Media.bannerImage
+                        ? { backgroundImage: `url(${data.Media.bannerImage})` }
+                        : {
+                              backgroundColor: data.Media.coverImage.color,
+                              minHeight: "30vh",
+                          }
+                }
                 className="hero-image"
-            >
-                <div className="hero-text"></div>
-            </div>
+            ></div>
 
             <div className="info-page centered">
                 <img
@@ -113,7 +112,13 @@ const AnimeInfo = () => {
                 <div className="other-info">
                     <section className="anime-info-section">
                         <h3>description</h3>
-                        <p>{data.Media.description}</p>
+                        <div
+                            // since it's text provided by API, I don't think it
+                            // will be a problem to use this
+                            dangerouslySetInnerHTML={{
+                                __html: data.Media.description,
+                            }}
+                        ></div>
                     </section>
                     {type === "ANIME" &&
                         data.Media.streamingEpisodes.length > 0 && (

@@ -247,6 +247,9 @@ button:hover {
     .card-holder {
         grid-template-columns: repeat(2, 180px);
     }
+    .thin-card-holder {
+        grid-template-columns: repeat(2, 1fr);
+    }
     .centered {
         width: 95%;
     }

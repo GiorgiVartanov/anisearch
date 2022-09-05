@@ -28,6 +28,10 @@ function App() {
                     <Route path="/about" element={<About />} />
                     <Route path="/:type/:id" element={<AnimeInfo />} />
                     <Route path="/character/:id" element={<CharacterInfo />} />
+                    <Route
+                        path="/character/:id/:name"
+                        element={<CharacterInfo />}
+                    />
                     <Route path="/staff/:id" element={<StaffInfo />} />
                     <Route path="/search" element={<Search />} />
                     <Route path="*" element={<NotFound />} />
