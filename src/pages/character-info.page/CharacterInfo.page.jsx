@@ -27,7 +27,7 @@ const CharacterInfo = () => {
         // character's page on API's website.
         // here I am changing name of website, so it's link to
         // another page on this website.
-        desc = desc.replace(/anilist.co/g, /anisearcher.netlify.app/);
+        desc = desc.replace(/anilist.co\//g, /anisearcher.netlify.app/);
 
         setDescription(desc);
     }, [data]);
