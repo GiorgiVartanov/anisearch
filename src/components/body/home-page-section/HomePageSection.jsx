@@ -6,7 +6,7 @@ const HomePageSection = ({ name, sortBy, status }) => {
     return (
         <article className="anime-section-holder">
             <div className="article-text">
-                <h3>{name}</h3>
+                <h2>{name}</h2>
             </div>
 
             <div className="show-list">

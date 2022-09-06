@@ -41,6 +41,7 @@ const NavBar = () => {
 
             <button
                 className="dropdown-button"
+                aria-label="dropdown button"
                 onClick={() => {
                     setDropdownOpened(!dropdownOpened);
                 }}

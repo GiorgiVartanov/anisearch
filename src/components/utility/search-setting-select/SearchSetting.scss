@@ -5,7 +5,9 @@
     flex-direction: column;
     .search-select-name {
         text-align: left;
-        color: $main-dimmed;
+        color: $main-dark;
+        font-weight: bold;
+        opacity: 0.8;
         // opacity: 0.5;
         white-space: nowrap;
         font-size: 0.9rem;

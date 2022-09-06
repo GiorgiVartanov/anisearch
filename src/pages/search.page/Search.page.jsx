@@ -121,13 +121,17 @@ const Search = () => {
 
     return (
         <>
-            <h3 className="select-holder">
+            <h2 className="select-holder">
                 SEARCH FOR
-                <select onChange={handleTypeSelect} className="type-select">
+                <select
+                    aria-label="search"
+                    onChange={handleTypeSelect}
+                    className="type-select"
+                >
                     <option value="ANIME">anime</option>
                     <option value="MANGA">manga</option>
                 </select>
-            </h3>
+            </h2>
             <div className="search-bar-holder">
                 <input
                     type="text"
