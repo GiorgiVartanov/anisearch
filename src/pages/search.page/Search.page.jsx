@@ -121,20 +121,21 @@ const Search = () => {
 
     return (
         <>
-            <h2 className="select-holder">
+            <p className="select-holder">
                 SEARCH FOR
                 <select
-                    aria-label="search"
+                    aria-label="select what you want to search for"
                     onChange={handleTypeSelect}
                     className="type-select"
                 >
                     <option value="ANIME">anime</option>
                     <option value="MANGA">manga</option>
                 </select>
-            </h2>
+            </p>
             <div className="search-bar-holder">
                 <input
                     type="text"
+                    aria-label="search"
                     className="search-bar"
                     onChange={handleSearch}
                     onKeyPress={handleKeyPress}
